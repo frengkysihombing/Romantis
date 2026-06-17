@@ -4,18 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>💖 Mia & Frengky • Souqy 💖</title>
-  <!-- Font & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Quicksand', sans-serif;
       background: linear-gradient(145deg, #fce4ec 0%, #f8e8ff 100%);
@@ -28,7 +22,6 @@
       position: relative;
       overflow-x: hidden;
     }
-
     .floating-hearts {
       position: fixed;
       top: 0;
@@ -39,7 +32,6 @@
       z-index: 1;
       overflow: hidden;
     }
-
     .heart-float {
       position: absolute;
       color: rgba(255, 80, 120, 0.15);
@@ -47,14 +39,12 @@
       animation: floatUp 12s infinite linear;
       transform: translateY(100vh);
     }
-
     @keyframes floatUp {
       0% { transform: translateY(100vh) rotate(0deg); opacity: 0.2; }
       10% { opacity: 0.6; }
       90% { opacity: 0.6; }
       100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
     }
-
     .card {
       position: relative;
       z-index: 10;
@@ -67,10 +57,8 @@
       padding: 2.2rem 1.8rem;
       box-shadow: 0 30px 60px rgba(200, 80, 120, 0.25), 0 10px 30px rgba(200, 80, 120, 0.15);
       border: 1px solid rgba(255, 255, 255, 0.7);
-      transition: all 0.3s ease;
       text-align: center;
     }
-
     .avatar-section {
       display: flex;
       justify-content: center;
@@ -79,7 +67,6 @@
       margin-bottom: 1.2rem;
       flex-wrap: wrap;
     }
-
     .avatar {
       width: 85px;
       height: 85px;
@@ -91,32 +78,20 @@
       font-weight: 700;
       box-shadow: 0 8px 20px rgba(255, 100, 130, 0.3);
       border: 3px solid white;
-      transition: 0.3s;
     }
-
-    .avatar.mia {
-      background: linear-gradient(145deg, #ffb6c1, #ff8a9b);
-      color: #5f2e3f;
-    }
-
-    .avatar.frengky {
-      background: linear-gradient(145deg, #a8d8ea, #7fc1d9);
-      color: #1e4a5f;
-    }
-
+    .avatar.mia { background: linear-gradient(145deg, #ffb6c1, #ff8a9b); color: #5f2e3f; }
+    .avatar.frengky { background: linear-gradient(145deg, #a8d8ea, #7fc1d9); color: #1e4a5f; }
     .heart-icon-big {
       font-size: 2.4rem;
       color: #e8436e;
       filter: drop-shadow(0 0 8px #ff4d7a);
       animation: pulseHeart 1.8s infinite;
     }
-
     @keyframes pulseHeart {
       0% { transform: scale(1); }
       50% { transform: scale(1.25); }
       100% { transform: scale(1); }
     }
-
     .title {
       font-weight: 700;
       font-size: 2.1rem;
@@ -127,9 +102,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      text-shadow: 0 0 30px rgba(214, 95, 122, 0.2);
     }
-
     .subtitle {
       font-weight: 400;
       font-size: 1rem;
@@ -142,16 +115,13 @@
       margin-bottom: 1.5rem;
       border: 1px solid rgba(255, 200, 210, 0.5);
     }
-
     .story {
       background: rgba(255, 245, 248, 0.6);
       padding: 1.2rem 1rem;
       border-radius: 32px;
       margin-bottom: 1.8rem;
       border: 1px solid rgba(255, 180, 190, 0.4);
-      box-shadow: inset 0 0 20px rgba(255, 150, 170, 0.1);
     }
-
     .story p {
       font-weight: 500;
       color: #3d2a33;
@@ -159,12 +129,7 @@
       font-size: 1rem;
       margin-bottom: 0.3rem;
     }
-
-    .story i {
-      color: #e8436e;
-      margin: 0 6px;
-    }
-
+    .story i { color: #e8436e; margin: 0 6px; }
     .btn-grid {
       display: flex;
       flex-wrap: wrap;
@@ -172,9 +137,8 @@
       gap: 1rem 0.8rem;
       margin: 1.8rem 0 1.5rem;
     }
-
     .btn-love {
-      background: white;
+      background: rgba(255, 255, 255, 0.7);
       border: none;
       padding: 0.9rem 1.6rem;
       border-radius: 60px;
@@ -191,25 +155,14 @@
       flex: 1 1 auto;
       justify-content: center;
       backdrop-filter: blur(4px);
-      background: rgba(255, 255, 255, 0.7);
     }
-
-    .btn-love i {
-      font-size: 1.2rem;
-      color: #e8436e;
-    }
-
+    .btn-love i { font-size: 1.2rem; color: #e8436e; }
     .btn-love:hover {
       transform: scale(1.03) translateY(-3px);
       background: rgba(255, 255, 255, 0.95);
       box-shadow: 0 12px 28px rgba(200, 70, 110, 0.35);
       border-color: #ff8da1;
     }
-
-    .btn-love:active {
-      transform: scale(0.96);
-    }
-
     .btn-special {
       background: linear-gradient(145deg, #ff7b9c, #e8436e);
       color: white !important;
@@ -219,17 +172,12 @@
       font-size: 1.1rem;
       flex: 1 1 100%;
     }
-
-    .btn-special i {
-      color: #ffe3eb !important;
-    }
-
+    .btn-special i { color: #ffe3eb !important; }
     .btn-special:hover {
       background: linear-gradient(145deg, #ff8aaa, #d63a60);
       box-shadow: 0 12px 32px rgba(232, 67, 110, 0.7);
       transform: scale(1.02) translateY(-4px);
     }
-
     .romantic-output {
       margin-top: 1.8rem;
       padding: 1rem 0.5rem;
@@ -240,7 +188,6 @@
       align-items: center;
       gap: 1rem;
     }
-
     .love-message {
       background: rgba(255, 240, 245, 0.7);
       backdrop-filter: blur(8px);
@@ -258,17 +205,11 @@
       flex-wrap: wrap;
       justify-content: center;
     }
-
-    .love-message i {
-      color: #e8436e;
-      font-size: 1.3rem;
-    }
-
+    .love-message i { color: #e8436e; font-size: 1.3rem; }
     @keyframes fadePop {
       0% { opacity: 0; transform: scale(0.6); }
       100% { opacity: 1; transform: scale(1); }
     }
-
     .burst-heart {
       position: fixed;
       pointer-events: none;
@@ -276,12 +217,10 @@
       z-index: 999;
       animation: burstOut 1s ease-out forwards;
     }
-
     @keyframes burstOut {
       0% { opacity: 1; transform: translate(0,0) scale(0.5) rotate(0deg); }
       100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(2) rotate(360deg); }
     }
-
     .floating-emoji {
       position: fixed;
       pointer-events: none;
@@ -289,12 +228,10 @@
       z-index: 999;
       animation: floatEmoji 1.6s ease-out forwards;
     }
-
     @keyframes floatEmoji {
       0% { opacity: 1; transform: translateY(0) scale(0.8); }
       100% { opacity: 0; transform: translateY(-160px) scale(1.8) rotate(20deg); }
     }
-
     .music-control {
       margin-top: 1rem;
       display: flex;
@@ -307,7 +244,6 @@
       backdrop-filter: blur(4px);
       border: 1px solid rgba(255, 180, 190, 0.3);
     }
-
     .music-btn {
       background: none;
       border: none;
@@ -318,19 +254,13 @@
       padding: 0.2rem 0.6rem;
       border-radius: 40px;
     }
-
-    .music-btn:hover {
-      background: rgba(255, 200, 210, 0.3);
-      transform: scale(1.1);
-    }
-
+    .music-btn:hover { background: rgba(255, 200, 210, 0.3); transform: scale(1.1); }
     .music-label {
       font-size: 0.8rem;
       color: #7a5a6a;
       font-weight: 600;
       letter-spacing: 0.3px;
     }
-
     .prayer-section {
       margin-top: 1.8rem;
       font-size: 0.9rem;
@@ -341,23 +271,13 @@
       border: 1px dashed #e8a0b4;
       backdrop-filter: blur(4px);
     }
-
-    .prayer-section i {
-      color: #b3415e;
-      margin: 0 4px;
-    }
-
-    .prayer-section span {
-      font-weight: 700;
-      color: #b3415e;
-    }
-
+    .prayer-section i { color: #b3415e; margin: 0 4px; }
+    .prayer-section span { font-weight: 700; color: #b3415e; }
     @media (max-width: 480px) {
       .card { padding: 1.8rem 1rem; }
       .title { font-size: 1.7rem; }
       .avatar { width: 70px; height: 70px; font-size: 2.2rem; }
       .btn-love { font-size: 0.9rem; padding: 0.7rem 1.2rem; }
-      .music-control { padding: 0.4rem 0.8rem; }
     }
   </style>
 </head>
@@ -365,7 +285,7 @@
 
   <div class="floating-hearts" id="floatingHearts"></div>
 
-  <div class="card" id="mainCard">
+  <div class="card">
     <div class="avatar-section">
       <div class="avatar mia">M</div>
       <span class="heart-icon-big"><i class="fas fa-heart"></i></span>
@@ -403,11 +323,11 @@
 
     <!-- MUSIC PLAYER - Souqy.mp3 dari repository -->
     <div class="music-control">
-      <button class="music-btn" id="playPauseBtn" title="Putar/Jeda musik">
+      <button class="music-btn" id="playPauseBtn">
         <i class="fas fa-pause" id="playIcon"></i>
       </button>
       <span class="music-label"><i class="fas fa-music"></i>  Souqy</span>
-      <button class="music-btn" id="volumeToggleBtn" title="Mute/Unmute">
+      <button class="music-btn" id="volumeToggleBtn">
         <i class="fas fa-volume-up" id="volumeIcon"></i>
       </button>
     </div>
@@ -418,80 +338,64 @@
     </div>
   </div>
 
-  <!-- Audio: Souqy.mp3 dari repository -->
+  <!-- ========== LINK SUDAH DISESUAIKAN DENGAN REPOSITORY ANDA ========== -->
   <audio id="romanticSong" loop preload="auto">
-    <!-- Ganti URL berikut dengan link file Souqy.mp3 dari repository Anda -->
-    <source src="https://raw.githubusercontent.com/NAMA_USER/NAMA_REPO/main/Souqy.mp3" type="audio/mpeg">
-    <!-- Opsi kedua: jika file di folder berbeda -->
-    <source src="https://NAMA_USER.github.io/NAMA_REPO/Souqy.mp3" type="audio/mpeg">
+    <!-- Link dari repository fengkysihombing/Romantis -->
+    <source src="https://raw.githubusercontent.com/fengkysihombing/Romantis/main/Souqy.mp3" type="audio/mpeg">
     <!-- Fallback jika file tidak ditemukan -->
     <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-    Browser tidak mendukung audio, tapi cinta tetap ada ❤️
   </audio>
 
   <script>
     (function() {
       // Floating hearts
-      const heartsContainer = document.getElementById('floatingHearts');
-      const heartSymbols = ['❤️', '💕', '💖', '✨', '🌸', '💗'];
+      const container = document.getElementById('floatingHearts');
+      const symbols = ['❤️', '💕', '💖', '✨', '🌸', '💗'];
       for (let i = 0; i < 18; i++) {
         const el = document.createElement('div');
         el.className = 'heart-float';
-        el.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+        el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
         el.style.left = Math.random() * 100 + '%';
         el.style.fontSize = (1.2 + Math.random() * 2.2) + 'rem';
         el.style.animationDuration = (10 + Math.random() * 18) + 's';
         el.style.animationDelay = (Math.random() * 15) + 's';
-        heartsContainer.appendChild(el);
+        container.appendChild(el);
       }
 
-      // === AUDIO PLAYER ===
+      // Audio
       const audio = document.getElementById('romanticSong');
       const playBtn = document.getElementById('playPauseBtn');
       const playIcon = document.getElementById('playIcon');
       const volumeBtn = document.getElementById('volumeToggleBtn');
       const volumeIcon = document.getElementById('volumeIcon');
-
       let isPlaying = false;
       let isMuted = false;
 
-      // Fungsi untuk memutar audio
       function playAudio() {
         audio.play().then(() => {
           isPlaying = true;
           playIcon.className = 'fas fa-pause';
-          console.log('Audio diputar: Souqy.mp3');
+          console.log('✅ Souqy.mp3 diputar dari repository!');
         }).catch((err) => {
-          console.warn('Autoplay blocked atau error:', err);
+          console.warn('Gagal autoplay:', err);
           playIcon.className = 'fas fa-play';
           isPlaying = false;
-          // Tampilkan pesan ke user jika gagal autoplay
-          showRomanticMessage('🎵 Klik tombol play untuk memutar lagu Souqy', '🎵');
         });
       }
 
-      // Coba autoplay saat halaman dimuat
-      setTimeout(() => {
-        playAudio();
-      }, 500);
-
-      // Fallback: jika autoplay gagal, coba lagi saat user klik di mana saja
-      document.addEventListener('click', function firstInteraction() {
-        if (!isPlaying) {
-          playAudio();
-        }
-        document.removeEventListener('click', firstInteraction);
-        document.removeEventListener('touchstart', firstInteraction);
+      // Autoplay
+      setTimeout(playAudio, 500);
+      document.addEventListener('click', function first() {
+        if (!isPlaying) playAudio();
+        document.removeEventListener('click', first);
+        document.removeEventListener('touchstart', first);
       }, { once: true });
-      document.addEventListener('touchstart', function firstInteractionTouch() {
-        if (!isPlaying) {
-          playAudio();
-        }
-        document.removeEventListener('click', firstInteractionTouch);
-        document.removeEventListener('touchstart', firstInteractionTouch);
+      document.addEventListener('touchstart', function firstTouch() {
+        if (!isPlaying) playAudio();
+        document.removeEventListener('click', firstTouch);
+        document.removeEventListener('touchstart', firstTouch);
       }, { once: true });
 
-      // Tombol Play/Pause
       playBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         if (isPlaying) {
@@ -503,7 +407,6 @@
         }
       });
 
-      // Volume toggle
       volumeBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         if (isMuted) {
@@ -516,19 +419,17 @@
           isMuted = true;
         }
       });
-
       audio.volume = 0.6;
 
-      // === FUNGSI ROMANTIS ===
+      // Romantic functions
       const output = document.getElementById('romanticOutput');
 
-      function showRomanticMessage(msg, emoji = '💖') {
+      function showMessage(msg) {
         output.innerHTML = '';
         const div = document.createElement('div');
         div.className = 'love-message';
         div.innerHTML = `<i class="fas fa-heart" style="color:#e8436e;"></i> ${msg} <i class="fas fa-heart" style="color:#e8436e;"></i>`;
         output.appendChild(div);
-
         for (let i = 0; i < 3; i++) {
           setTimeout(() => {
             const em = document.createElement('div');
@@ -541,7 +442,6 @@
             setTimeout(() => em.remove(), 1800);
           }, i * 120);
         }
-
         for (let i = 0; i < 6; i++) {
           setTimeout(() => {
             const burst = document.createElement('div');
@@ -558,36 +458,17 @@
         }
       }
 
-      // Tombol cinta biasa
-      const loveBtns = document.querySelectorAll('.btn-love:not(.btn-special)');
-      loveBtns.forEach(btn => {
-        btn.addEventListener('click', function(e) {
+      document.querySelectorAll('.btn-love:not(.btn-special)').forEach(btn => {
+        btn.addEventListener('click', function() {
           const msg = this.getAttribute('data-msg') || 'Cinta abadi untuk Mia & Frengky ❤️';
-          showRomanticMessage(msg, '💞');
-          const rect = this.getBoundingClientRect();
-          for (let i = 0; i < 4; i++) {
-            setTimeout(() => {
-              const em = document.createElement('div');
-              em.className = 'floating-emoji';
-              em.textContent = ['🌸', '💋', '🌹', '💌', '🥰'][Math.floor(Math.random() * 5)];
-              em.style.left = (rect.left + rect.width/2 + (Math.random()-0.5)*80) + 'px';
-              em.style.top = (rect.top + (Math.random()-0.5)*40) + 'px';
-              em.style.fontSize = (1.8 + Math.random() * 1.8) + 'rem';
-              document.body.appendChild(em);
-              setTimeout(() => em.remove(), 1700);
-            }, i * 60);
-          }
-          if (!isPlaying) {
-            playAudio();
-          }
+          showMessage(msg);
+          if (!isPlaying) playAudio();
         });
       });
 
-      // Tombol SPESIAL
-      const specialBtn = document.getElementById('specialDoaBtn');
-      specialBtn.addEventListener('click', function() {
-        const longMessage = `🌹 Semoga Mia & Frengky langgeng sampai seterusnya, di dalam doa selalu ada i ahti 💖✨  •  Cinta sejati tak kenal jarak, hanya kenal rindu dan kesetiaan. •  Dalam setiap doa, nama kalian bersatu. 🙏`;
-        showRomanticMessage(longMessage, '🙏✨');
+      document.getElementById('specialDoaBtn').addEventListener('click', function() {
+        const msg = `🌹 Semoga Mia & Frengky langgeng sampai seterusnya, di dalam doa selalu ada i ahti 💖✨ Cinta sejati tak kenal jarak, hanya kenal rindu dan kesetiaan. 🙏`;
+        showMessage(msg);
         for (let i = 0; i < 12; i++) {
           setTimeout(() => {
             const burst = document.createElement('div');
@@ -602,7 +483,6 @@
             setTimeout(() => burst.remove(), 1500);
           }, i * 100);
         }
-
         setTimeout(() => {
           const em = document.createElement('div');
           em.className = 'floating-emoji';
@@ -616,28 +496,22 @@
           document.body.appendChild(em);
           setTimeout(() => em.remove(), 2500);
         }, 400);
-
-        if (!isPlaying) {
-          playAudio();
-        }
+        if (!isPlaying) playAudio();
       });
 
-      // Default message
       setTimeout(() => {
-        showRomanticMessage('💕 Klik tombol cinta, rasakan hangatnya rindu LDR 💕', '💖');
+        showMessage('💕 Klik tombol cinta, rasakan hangatnya rindu LDR 💕');
       }, 400);
 
-      // Cek apakah audio bisa dimuat
+      // Cek apakah file MP3 bisa dimuat
       audio.addEventListener('error', function(e) {
-        console.warn('Gagal memuat Souqy.mp3, gunakan fallback');
-        showRomanticMessage('🎵 Lagu Souqy sedang diputar (fallback)', '🎵');
+        console.warn('⚠️ Gagal memuat Souqy.mp3, cek link repository');
+        showMessage('🎵 Mohon tunggu, lagu sedang dimuat...');
       });
 
-      // Info ketika audio berhasil dimuat
       audio.addEventListener('canplaythrough', function() {
         console.log('✅ Souqy.mp3 berhasil dimuat!');
       });
-
     })();
   </script>
 </body>
