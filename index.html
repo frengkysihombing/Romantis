@@ -321,7 +321,7 @@
       </div>
     </div>
 
-    <!-- MUSIC PLAYER - Souqy.mp3 dari repository -->
+    <!-- MUSIC PLAYER - Souqy.mp3 dari repository ANDA -->
     <div class="music-control">
       <button class="music-btn" id="playPauseBtn">
         <i class="fas fa-pause" id="playIcon"></i>
@@ -338,12 +338,11 @@
     </div>
   </div>
 
-  <!-- ========== LINK SUDAH DISESUAIKAN DENGAN REPOSITORY ANDA ========== -->
+  <!-- ========== LAGU SOUQY.MP3 DARI REPOSITORY ANDA ========== -->
   <audio id="romanticSong" loop preload="auto">
-    <!-- Link dari repository fengkysihombing/Romantis -->
+    <!-- ✅ LINK YANG BENAR dari repository fengkysihombing/Romantis -->
     <source src="https://raw.githubusercontent.com/fengkysihombing/Romantis/main/Souqy.mp3" type="audio/mpeg">
-    <!-- Fallback jika file tidak ditemukan -->
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    <!-- ❌ TIDAK ADA FALLBACK LAGU LAIN! Hanya Souqy.mp3 -->
   </audio>
 
   <script>
@@ -375,9 +374,11 @@
         audio.play().then(() => {
           isPlaying = true;
           playIcon.className = 'fas fa-pause';
-          console.log('✅ Souqy.mp3 diputar dari repository!');
+          console.log('✅ BERHASIL! Souqy.mp3 diputar dari repository!');
+          showMessage('🎵 Sedang memutar lagu Souqy untuk Mia & Frengky 💖');
         }).catch((err) => {
-          console.warn('Gagal autoplay:', err);
+          console.error('❌ GAGAL memutar Souqy.mp3:', err);
+          showMessage('⚠️ Gagal memutar lagu. Coba klik tombol play!');
           playIcon.className = 'fas fa-play';
           isPlaying = false;
         });
@@ -505,12 +506,13 @@
 
       // Cek apakah file MP3 bisa dimuat
       audio.addEventListener('error', function(e) {
-        console.warn('⚠️ Gagal memuat Souqy.mp3, cek link repository');
-        showMessage('🎵 Mohon tunggu, lagu sedang dimuat...');
+        console.error('❌ ERROR: Gagal memuat Souqy.mp3');
+        console.log('Cek link: https://raw.githubusercontent.com/fengkysihombing/Romantis/main/Souqy.mp3');
+        showMessage('⚠️ Lagu tidak ditemukan. Pastikan file Souqy.mp3 ada di repository!');
       });
 
       audio.addEventListener('canplaythrough', function() {
-        console.log('✅ Souqy.mp3 berhasil dimuat!');
+        console.log('✅ Souqy.mp3 BERHASIL dimuat dari repository!');
       });
     })();
   </script>
