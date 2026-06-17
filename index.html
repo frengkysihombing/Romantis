@@ -321,7 +321,6 @@
       </div>
     </div>
 
-    <!-- MUSIC PLAYER - Souqy.mp3 dari repository -->
     <div class="music-control">
       <button class="music-btn" id="playPauseBtn">
         <i class="fas fa-pause" id="playIcon"></i>
@@ -338,9 +337,9 @@
     </div>
   </div>
 
-  <!-- ========== LINK FILE SOUQY.MP3 (SUDAH BENAR) ========== -->
+  <!-- ========== LINK MP3 SUDAH BENAR ========== -->
   <audio id="romanticSong" loop preload="auto">
-    <source src="https://raw.githubusercontent.com/fengkysihombing/Romantis/main/Souqy.mp3" type="audio/mpeg">
+    <source src="https://raw.githubusercontent.com/frengkysihombing/Romantis/dcc093336370164fe887fee660895562a85185fb/Souqy.mp3" type="audio/mpeg">
   </audio>
 
   <script>
@@ -372,10 +371,10 @@
         audio.play().then(() => {
           isPlaying = true;
           playIcon.className = 'fas fa-pause';
-          console.log('✅ BERHASIL! Souqy.mp3 diputar dari repository!');
+          console.log('✅ BERHASIL! Souqy.mp3 diputar!');
           showMessage('🎵 Sedang memutar lagu Souqy untuk Mia & Frengky 💖');
         }).catch((err) => {
-          console.error('❌ GAGAL memutar Souqy.mp3:', err);
+          console.error('❌ GAGAL memutar lagu:', err);
           showMessage('⚠️ Gagal memutar lagu. Coba klik tombol play!');
           playIcon.className = 'fas fa-play';
           isPlaying = false;
@@ -502,15 +501,13 @@
         showMessage('💕 Klik tombol cinta, rasakan hangatnya rindu LDR 💕');
       }, 400);
 
-      // Cek apakah file MP3 bisa dimuat
       audio.addEventListener('error', function(e) {
         console.error('❌ ERROR: Gagal memuat Souqy.mp3');
-        console.log('Cek link: https://raw.githubusercontent.com/fengkysihombing/Romantis/main/Souqy.mp3');
-        showMessage('⚠️ Lagu tidak ditemukan. Pastikan file Souqy.mp3 ada di repository!');
+        showMessage('⚠️ Lagu tidak ditemukan. Pastikan file ada di repository!');
       });
 
       audio.addEventListener('canplaythrough', function() {
-        console.log('✅ Souqy.mp3 BERHASIL dimuat dari repository!');
+        console.log('✅ Souqy.mp3 BERHASIL dimuat!');
       });
     })();
   </script>
