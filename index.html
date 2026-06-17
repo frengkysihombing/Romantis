@@ -23,7 +23,6 @@
       overflow-x: hidden;
     }
 
-    /* ===== HUJAN LOVE BACKGROUND ===== */
     .rain-container {
       position: fixed;
       top: 0;
@@ -49,7 +48,6 @@
       100% { transform: translateY(110vh) rotate(720deg) scale(1.3); opacity: 0; }
     }
 
-    /* ===== FLOATING HEARTS ===== */
     .floating-hearts {
       position: fixed;
       top: 0;
@@ -74,7 +72,6 @@
       100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
     }
 
-    /* ===== MAIN CARD ===== */
     .card {
       position: relative;
       z-index: 10;
@@ -123,18 +120,16 @@
       50% { transform: scale(1.03); }
     }
 
-    /* ===== SLIDESHOW - PERBAIKAN POINTER EVENTS ===== */
     .slideshow-container {
       position: relative;
       width: 100%;
       border-radius: 32px;
-      overflow: hidden;
+      overflow: visible;
       box-shadow: 0 15px 40px rgba(200, 80, 120, 0.3);
       aspect-ratio: 4 / 3;
       background: #f0e0e8;
     }
 
-    /* ★ PERBAIKAN 1: Slide non-aktif tidak bisa menerima klik ★ */
     .slide {
       position: absolute;
       top: 0;
@@ -148,16 +143,15 @@
       align-items: center;
       justify-content: center;
       background: #f0e0e8;
-      pointer-events: none; /* ← TAMBAHAN: non-aktif tidak bisa diklik */
+      pointer-events: none;
+      border-radius: 32px;
+      overflow: hidden;
     }
-
     .slide.active {
       opacity: 1;
       transform: scale(1);
-      pointer-events: auto; /* ← TAMBAHAN: hanya slide aktif yang bisa diklik */
+      pointer-events: auto;
     }
-
-    /* ★ PERBAIKAN 2: Gambar tidak menghalangi klik tombol ★ */
     .slide img {
       width: 100%;
       height: 100%;
@@ -167,69 +161,88 @@
       display: block;
       background: #f0e0e8;
       padding: 4px;
-      pointer-events: none; /* ← TAMBAHAN: gambar tidak menghalangi klik */
+      pointer-events: none;
     }
 
-    /* ★ PERBAIKAN 3: Tombol di atas semua elemen ★ */
+    /* ★ TOMBOL NAIK TIPIS agar tidak terpotong ★ */
     .slide-actions {
       position: absolute;
-      bottom: 24px;
+      bottom: 8px; /* ★ Dinaikkan dari -10px menjadi 8px */
       left: 0;
       right: 0;
       display: flex;
       justify-content: center;
-      gap: 14px;
-      z-index: 999; /* ← TAMBAHAN: tombol di atas segalanya */
+      gap: 20px;
+      z-index: 999;
       flex-wrap: wrap;
       padding: 0 16px;
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(20px);
       transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s;
       pointer-events: none;
     }
-
     .slide.active .slide-actions {
       opacity: 1;
       transform: translateY(0);
       pointer-events: auto;
     }
 
-    /* ★ PERBAIKAN 4: Tombol siap menerima klik ★ */
+    /* ★ TOMBOL BESAR DENGAN EFEK MENONJOL ★ */
     .love-btn-overlay {
-      background: rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 2px solid rgba(255, 255, 255, 0.6);
       color: white;
-      padding: 12px 22px;
+      padding: 16px 32px;
       border-radius: 60px;
-      font-weight: 700;
-      font-size: 0.9rem;
+      font-weight: 800;
+      font-size: 1.1rem;
       cursor: pointer;
       transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      box-shadow: 0 6px 25px rgba(0,0,0,0.15);
-      text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+      gap: 12px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.25), 0 0 30px rgba(232,67,110,0.2);
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
       position: relative;
-      z-index: 1000; /* ← TAMBAHAN: tombol di atas segalanya */
-      pointer-events: auto !important; /* ← TAMBAHAN: tombol selalu bisa diklik */
+      z-index: 1000;
+      pointer-events: auto !important;
+      letter-spacing: 0.5px;
+      animation: glowPulse 2.5s ease-in-out infinite;
     }
-    .love-btn-overlay i { font-size: 1.1rem; color: #ff6b8a; }
+    .love-btn-overlay i {
+      font-size: 1.4rem;
+      color: #ff6b8a;
+    }
     .love-btn-overlay:hover {
-      transform: scale(1.1) translateY(-4px);
-      background: rgba(255, 255, 255, 0.4);
-      box-shadow: 0 12px 40px rgba(232, 67, 110, 0.4);
+      transform: scale(1.15) translateY(-6px);
+      background: rgba(255, 255, 255, 0.5);
+      box-shadow: 0 16px 50px rgba(232, 67, 110, 0.5), 0 0 60px rgba(232,67,110,0.3);
+      border-color: rgba(255,255,255,0.8);
     }
-    .love-btn-overlay:active { transform: scale(0.92); }
+    .love-btn-overlay:active {
+      transform: scale(0.92);
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { box-shadow: 0 10px 40px rgba(0,0,0,0.25), 0 0 20px rgba(232,67,110,0.15); }
+      50% { box-shadow: 0 10px 50px rgba(232,67,110,0.4), 0 0 40px rgba(232,67,110,0.25); }
+    }
 
     .love-btn-overlay.special {
-      background: linear-gradient(135deg, rgba(232,67,110,0.7), rgba(255,107,138,0.7));
-      border-color: rgba(255,255,255,0.5);
+      background: linear-gradient(135deg, rgba(232,67,110,0.8), rgba(255,107,138,0.8));
+      border-color: rgba(255,255,255,0.6);
+      animation: glowPulseSpecial 2s ease-in-out infinite;
     }
     .love-btn-overlay.special:hover {
-      background: linear-gradient(135deg, rgba(232,67,110,0.9), rgba(255,107,138,0.9));
+      background: linear-gradient(135deg, rgba(232,67,110,0.95), rgba(255,107,138,0.95));
+      box-shadow: 0 16px 50px rgba(232, 67, 110, 0.6), 0 0 60px rgba(232,67,110,0.4);
+    }
+
+    @keyframes glowPulseSpecial {
+      0%, 100% { box-shadow: 0 10px 40px rgba(232,67,110,0.3), 0 0 30px rgba(232,67,110,0.15); }
+      50% { box-shadow: 0 10px 60px rgba(232,67,110,0.5), 0 0 50px rgba(232,67,110,0.3); }
     }
 
     /* Caption */
@@ -301,7 +314,7 @@
       display: flex;
       justify-content: center;
       gap: 10px;
-      margin: 1.2rem 0 0.8rem;
+      margin: 1.8rem 0 0.8rem;
     }
     .dot {
       width: 12px;
@@ -412,26 +425,41 @@
       .title { font-size: 1.5rem; }
       .slideshow-container { aspect-ratio: 4 / 3; }
       .nav-btn { width: 32px; height: 32px; font-size: 0.9rem; }
-      .love-btn-overlay { font-size: 0.7rem; padding: 8px 14px; gap: 6px; }
-      .love-btn-overlay i { font-size: 0.8rem; }
+      
+      .love-btn-overlay {
+        font-size: 0.85rem;
+        padding: 12px 20px;
+        gap: 8px;
+      }
+      .love-btn-overlay i { font-size: 1rem; }
+      .slide-actions { 
+        bottom: 4px; /* ★ Dinaikkan di HP */
+        gap: 10px;
+      }
       .slide-caption { font-size: 0.8rem; padding: 1rem 1rem 0.5rem; }
-      .slide-actions { bottom: 16px; gap: 8px; }
+    }
+
+    @media (max-width: 380px) {
+      .love-btn-overlay {
+        font-size: 0.7rem;
+        padding: 10px 14px;
+        gap: 6px;
+      }
+      .love-btn-overlay i { font-size: 0.8rem; }
+      .slide-actions { bottom: 2px; gap: 6px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ===== HUJAN LOVE BACKGROUND ===== -->
   <div class="rain-container" id="rainContainer"></div>
   <div class="floating-hearts" id="floatingHearts"></div>
 
-  <!-- ===== MAIN CARD ===== -->
   <div class="card">
 
     <h1 class="title">💖 Mia & Frengky 💖</h1>
     <div class="subtitle"><i class="fas fa-heart" style="color:#e8436e;"></i> LDR • Cinta Sejati <i class="fas fa-heart" style="color:#e8436e;"></i></div>
 
-    <!-- ===== SLIDESHOW ===== -->
     <div class="slideshow-container" id="slideshowContainer">
 
       <!-- Slide 1 -->
@@ -486,12 +514,10 @@
         </div>
       </div>
 
-      <!-- Navigation -->
       <button class="nav-btn prev" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
       <button class="nav-btn next" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
     </div>
 
-    <!-- Dots -->
     <div class="dots-container" id="dotsContainer">
       <button class="dot active" data-index="0"></button>
       <button class="dot" data-index="1"></button>
@@ -499,7 +525,6 @@
       <button class="dot" data-index="3"></button>
     </div>
 
-    <!-- ===== MUSIC ===== -->
     <div class="music-control">
       <button class="music-btn" id="playPauseBtn">
         <i class="fas fa-play" id="playIcon"></i>
@@ -510,7 +535,6 @@
       </button>
     </div>
 
-    <!-- ===== ROMANTIC OUTPUT ===== -->
     <div class="romantic-output" id="romanticOutput">
       <div class="love-message">
         <i class="fas fa-heart" style="color:#e8436e;"></i>  Klik tombol cinta di dalam foto  <i class="fas fa-heart" style="color:#e8436e;"></i>
@@ -519,7 +543,6 @@
 
   </div>
 
-  <!-- ===== AUDIO ===== -->
   <audio id="romanticSong" loop preload="auto">
     <source src="https://raw.githubusercontent.com/frengkysihombing/Romantis/dcc093336370164fe887fee660895562a85185fb/Souqy.mp3" type="audio/mpeg">
   </audio>
@@ -687,8 +710,7 @@
         if (!isPlaying) playAudio(false);
       }
 
-      // ========== EVENT LISTENER UNTUK SEMUA TOMBOL (DELEGASI) ==========
-      // Cara paling aman: gunakan event delegation dari container
+      // ========== EVENT LISTENER UNTUK SEMUA TOMBOL ==========
       document.addEventListener('click', function(e) {
         const btn = e.target.closest('.love-btn-overlay');
         if (btn) {
