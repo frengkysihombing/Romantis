@@ -88,7 +88,7 @@
       border: 1px solid rgba(255, 200, 210, 0.4);
     }
 
-    /* ========== SLIDESHOW ========== */
+    /* ========== SLIDESHOW - FULL IMAGE ========== */
     .slideshow-container {
       position: relative;
       width: 100%;
@@ -108,7 +108,10 @@
       opacity: 0;
       transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
       transform: scale(1.05);
-      object-fit: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f0e0e8;
     }
 
     .slide.active {
@@ -116,12 +119,16 @@
       transform: scale(1);
     }
 
+    /* ★ PERBAIKAN: GAMBAR FULL TANPA TERPOTONG ★ */
     .slide img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;  /* ← ini kunci agar gambar full tanpa terpotong */
+      object-position: center;
       border-radius: 32px;
       display: block;
+      background: #f8e8ee;
+      padding: 4px; /* sedikit jarak agar lebih rapi */
     }
 
     /* Caption overlay */
@@ -139,6 +146,8 @@
       letter-spacing: 0.5px;
       opacity: 0;
       transition: opacity 0.6s ease;
+      pointer-events: none;
+      border-radius: 0 0 32px 32px;
     }
     .slide.active .slide-caption {
       opacity: 1;
@@ -344,6 +353,14 @@
       .slide-caption { font-size: 0.85rem; padding: 1rem 1rem 0.8rem; }
       .btn-love { font-size: 0.75rem; padding: 0.4rem 0.9rem; }
     }
+
+    /* Tambahan untuk memastikan gambar benar-benar full di semua ukuran */
+    @media (max-width: 400px) {
+      .slideshow-container { aspect-ratio: 3 / 4; }
+    }
+    @media (min-width: 800px) {
+      .slideshow-container { aspect-ratio: 16 / 10; }
+    }
   </style>
 </head>
 <body>
@@ -472,16 +489,13 @@
       let slideInterval;
 
       function goToSlide(index) {
-        // Validasi index
         if (index < 0) index = slides.length - 1;
         if (index >= slides.length) index = 0;
 
-        // Update slides
         slides.forEach((slide, i) => {
           slide.classList.toggle('active', i === index);
         });
 
-        // Update dots
         dots.forEach((dot, i) => {
           dot.classList.toggle('active', i === index);
         });
@@ -489,15 +503,9 @@
         currentIndex = index;
       }
 
-      function nextSlide() {
-        goToSlide(currentIndex + 1);
-      }
+      function nextSlide() { goToSlide(currentIndex + 1); }
+      function prevSlide() { goToSlide(currentIndex - 1); }
 
-      function prevSlide() {
-        goToSlide(currentIndex - 1);
-      }
-
-      // Event listeners
       prevBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         prevSlide();
@@ -518,7 +526,6 @@
         });
       });
 
-      // Auto-slide
       function startInterval() {
         slideInterval = setInterval(nextSlide, 4000);
       }
@@ -527,7 +534,6 @@
         startInterval();
       }
 
-      // Pause auto-slide saat hover/ touch
       const container = document.getElementById('slideshowContainer');
       container.addEventListener('mouseenter', () => clearInterval(slideInterval));
       container.addEventListener('mouseleave', startInterval);
@@ -556,10 +562,8 @@
         });
       }
 
-      // Autoplay diam-diam
       setTimeout(() => playAudio(false), 500);
 
-      // Interaksi pertama
       document.addEventListener('click', function first() {
         if (!isPlaying) playAudio(true);
         document.removeEventListener('click', first);
@@ -606,7 +610,6 @@
         div.innerHTML = `<i class="fas fa-heart" style="color:#e8436e;"></i> ${msg} <i class="fas fa-heart" style="color:#e8436e;"></i>`;
         output.appendChild(div);
 
-        // Efek burst heart
         for (let i = 0; i < 5; i++) {
           setTimeout(() => {
             const burst = document.createElement('div');
@@ -623,7 +626,6 @@
         }
       }
 
-      // Tombol cinta
       document.querySelectorAll('.btn-love').forEach(btn => {
         btn.addEventListener('click', function() {
           const msg = this.getAttribute('data-msg') || '💖 Cinta abadi untuk Mia & Frengky 💖';
@@ -632,7 +634,6 @@
         });
       });
 
-      // Pesan default
       setTimeout(() => {
         showMessage('💕 Klik tombol cinta untuk pesan romantis 💕');
       }, 600);
