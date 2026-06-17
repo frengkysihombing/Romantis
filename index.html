@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>💖 Galeri Cinta Mia & Frengky 💖</title>
+  <title>💖 Mia & Frengky • Cinta Abadi 💖</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -23,7 +23,33 @@
       overflow-x: hidden;
     }
 
-    /* Floating hearts background */
+    /* ===== HUJAN LOVE BACKGROUND ===== */
+    .rain-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .rain-heart {
+      position: absolute;
+      font-size: 1.8rem;
+      color: rgba(232, 67, 110, 0.25);
+      animation: rainFall linear infinite;
+      pointer-events: none;
+      user-select: none;
+    }
+    @keyframes rainFall {
+      0% { transform: translateY(-10vh) rotate(0deg) scale(0.8); opacity: 0.3; }
+      10% { opacity: 0.8; }
+      90% { opacity: 0.8; }
+      100% { transform: translateY(110vh) rotate(720deg) scale(1.2); opacity: 0; }
+    }
+
+    /* ===== FLOATING HEARTS ===== */
     .floating-hearts {
       position: fixed;
       top: 0;
@@ -36,44 +62,49 @@
     }
     .heart-float {
       position: absolute;
-      color: rgba(255, 80, 120, 0.12);
-      font-size: 2rem;
-      animation: floatUp 15s infinite linear;
+      color: rgba(255, 80, 120, 0.08);
+      font-size: 2.5rem;
+      animation: floatUp 18s infinite linear;
       transform: translateY(100vh);
     }
     @keyframes floatUp {
-      0% { transform: translateY(100vh) rotate(0deg); opacity: 0.2; }
-      10% { opacity: 0.6; }
-      90% { opacity: 0.6; }
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0.1; }
+      10% { opacity: 0.4; }
+      90% { opacity: 0.4; }
       100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
     }
 
-    /* Main Card */
+    /* ===== MAIN CARD ===== */
     .card {
       position: relative;
       z-index: 10;
       max-width: 700px;
       width: 100%;
-      background: rgba(255, 255, 255, 0.5);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border-radius: 48px;
       padding: 2rem 1.8rem 2.2rem;
       box-shadow: 0 30px 60px rgba(200, 80, 120, 0.2), 0 10px 30px rgba(200, 80, 120, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.5);
       text-align: center;
     }
 
     /* Title */
     .title {
       font-weight: 700;
-      font-size: 1.8rem;
+      font-size: 2rem;
       letter-spacing: -0.5px;
-      margin-bottom: 0.3rem;
-      background: linear-gradient(135deg, #b3415e, #d65f7a);
+      margin-bottom: 0.2rem;
+      background: linear-gradient(135deg, #b3415e, #d65f7a, #ff6b8a);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      animation: glowTitle 2s ease-in-out infinite alternate;
+    }
+    @keyframes glowTitle {
+      0% { filter: drop-shadow(0 0 10px rgba(232,67,110,0.2)); }
+      100% { filter: drop-shadow(0 0 25px rgba(232,67,110,0.5)); }
     }
     .subtitle {
       font-weight: 400;
@@ -86,15 +117,20 @@
       backdrop-filter: blur(4px);
       margin-bottom: 1.5rem;
       border: 1px solid rgba(255, 200, 210, 0.4);
+      animation: pulseSub 2s infinite;
+    }
+    @keyframes pulseSub {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
     }
 
-    /* ========== SLIDESHOW - FULL IMAGE ========== */
+    /* ===== SLIDESHOW ===== */
     .slideshow-container {
       position: relative;
       width: 100%;
       border-radius: 32px;
       overflow: hidden;
-      box-shadow: 0 15px 40px rgba(200, 80, 120, 0.25);
+      box-shadow: 0 15px 40px rgba(200, 80, 120, 0.3);
       aspect-ratio: 4 / 3;
       background: #f8e8ee;
     }
@@ -113,90 +149,113 @@
       justify-content: center;
       background: #f0e0e8;
     }
-
     .slide.active {
       opacity: 1;
       transform: scale(1);
     }
-
-    /* ★ PERBAIKAN: GAMBAR FULL TANPA TERPOTONG ★ */
     .slide img {
       width: 100%;
       height: 100%;
-      object-fit: contain;  /* ← ini kunci agar gambar full tanpa terpotong */
+      object-fit: contain;
       object-position: center;
       border-radius: 32px;
       display: block;
       background: #f8e8ee;
-      padding: 4px; /* sedikit jarak agar lebih rapi */
+      padding: 4px;
     }
 
-    /* Caption overlay */
-    .slide-caption {
+    /* ===== TOMBOL CINTA DI ATAS FOTO ===== */
+    .slide-actions {
       position: absolute;
-      bottom: 0;
+      bottom: 20px;
       left: 0;
       right: 0;
-      padding: 1.8rem 1.5rem 1.2rem;
-      background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 100%);
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      z-index: 15;
+      flex-wrap: wrap;
+      padding: 0 16px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease 0.3s;
+      pointer-events: none;
+    }
+    .slide.active .slide-actions {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .love-btn-overlay {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      pointer-events: auto;
+    }
+    .love-btn-overlay i { font-size: 1rem; color: #ff6b8a; }
+    .love-btn-overlay:hover {
+      transform: scale(1.08) translateY(-3px);
+      background: rgba(255, 255, 255, 0.4);
+      box-shadow: 0 8px 30px rgba(232, 67, 110, 0.4);
+    }
+    .love-btn-overlay:active { transform: scale(0.92); }
+
+    .love-btn-overlay.special {
+      background: linear-gradient(135deg, rgba(232,67,110,0.7), rgba(255,107,138,0.7));
+      border-color: rgba(255,255,255,0.6);
+    }
+    .love-btn-overlay.special:hover {
+      background: linear-gradient(135deg, rgba(232,67,110,0.9), rgba(255,107,138,0.9));
+    }
+
+    /* Caption */
+    .slide-caption {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem 1.5rem 1rem;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 100%);
       color: white;
       text-align: left;
       font-weight: 600;
-      font-size: 1.1rem;
-      letter-spacing: 0.5px;
+      font-size: 1rem;
       opacity: 0;
       transition: opacity 0.6s ease;
       pointer-events: none;
-      border-radius: 0 0 32px 32px;
+      border-radius: 32px 32px 0 0;
     }
     .slide.active .slide-caption {
       opacity: 1;
     }
-    .slide-caption i {
-      color: #ff6b8a;
-      margin-right: 8px;
-    }
+    .slide-caption i { color: #ff6b8a; margin-right: 8px; }
     .slide-caption small {
       display: block;
       font-weight: 300;
-      font-size: 0.75rem;
-      opacity: 0.8;
-      margin-top: 4px;
+      font-size: 0.7rem;
+      opacity: 0.7;
+      margin-top: 2px;
     }
 
-    /* Navigation Dots */
-    .dots-container {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin: 1.2rem 0 0.8rem;
-    }
-    .dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: rgba(200, 80, 120, 0.3);
-      border: none;
-      cursor: pointer;
-      transition: all 0.4s ease;
-      padding: 0;
-    }
-    .dot.active {
-      background: #e8436e;
-      transform: scale(1.3);
-      box-shadow: 0 0 16px rgba(232, 67, 110, 0.5);
-    }
-    .dot:hover {
-      transform: scale(1.2);
-      background: rgba(232, 67, 110, 0.6);
-    }
-
-    /* Navigation Arrows */
+    /* Navigation */
     .nav-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(6px);
       border: 1px solid rgba(255, 255, 255, 0.3);
       color: white;
@@ -219,13 +278,36 @@
       pointer-events: auto;
     }
     .nav-btn:hover {
-      background: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.4);
       transform: translateY(-50%) scale(1.1);
     }
     .nav-btn.prev { left: 12px; }
     .nav-btn.next { right: 12px; }
 
-    /* ========== MUSIC PLAYER ========== */
+    /* Dots */
+    .dots-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 1.2rem 0 0.8rem;
+    }
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(200, 80, 120, 0.3);
+      border: none;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      padding: 0;
+    }
+    .dot.active {
+      background: #e8436e;
+      transform: scale(1.3);
+      box-shadow: 0 0 20px rgba(232, 67, 110, 0.6);
+    }
+
+    /* ===== MUSIC ===== */
     .music-control {
       margin-top: 1.2rem;
       display: flex;
@@ -256,41 +338,7 @@
       letter-spacing: 0.3px;
     }
 
-    /* ========== LOVE BUTTONS ========== */
-    .love-actions {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.6rem;
-      margin-top: 1rem;
-    }
-    .btn-love {
-      background: rgba(255, 255, 255, 0.7);
-      border: none;
-      padding: 0.6rem 1.2rem;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      color: #4a2c3a;
-      box-shadow: 0 4px 12px rgba(200, 80, 120, 0.15);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: 0.2s ease;
-      cursor: pointer;
-      border: 1px solid rgba(255, 200, 210, 0.4);
-      backdrop-filter: blur(4px);
-    }
-    .btn-love i { font-size: 1rem; color: #e8436e; }
-    .btn-love:hover {
-      transform: scale(1.04) translateY(-2px);
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 8px 20px rgba(200, 70, 110, 0.25);
-      border-color: #ff8da1;
-    }
-    .btn-love:active { transform: scale(0.95); }
-
-    /* ========== ROMANTIC OUTPUT ========== */
+    /* ===== ROMANTIC OUTPUT ===== */
     .romantic-output {
       margin-top: 1.2rem;
       min-height: 50px;
@@ -318,147 +366,145 @@
       100% { opacity: 1; transform: scale(1); }
     }
 
-    /* ========== BURST HEART ANIMATION ========== */
-    .burst-heart {
+    /* ===== HUJAN LOVE SAAT KLIK ===== */
+    .rain-burst {
       position: fixed;
       pointer-events: none;
       font-size: 2.5rem;
       z-index: 999;
-      animation: burstOut 1s ease-out forwards;
+      animation: burstLove 1.5s ease-out forwards;
     }
-    @keyframes burstOut {
+    @keyframes burstLove {
       0% { opacity: 1; transform: translate(0,0) scale(0.5) rotate(0deg); }
-      100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(2) rotate(360deg); }
+      100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(2.5) rotate(720deg); }
     }
+
     .floating-emoji {
       position: fixed;
       pointer-events: none;
-      font-size: 1.8rem;
+      font-size: 2rem;
       z-index: 999;
-      animation: floatEmoji 1.6s ease-out forwards;
+      animation: floatEmoji 2s ease-out forwards;
     }
     @keyframes floatEmoji {
       0% { opacity: 1; transform: translateY(0) scale(0.8); }
-      100% { opacity: 0; transform: translateY(-150px) scale(1.6) rotate(20deg); }
+      100% { opacity: 0; transform: translateY(-200px) scale(2) rotate(30deg); }
     }
 
-    /* ========== RESPONSIVE ========== */
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 480px) {
       .card { padding: 1.2rem 1rem; border-radius: 32px; }
-      .title { font-size: 1.4rem; }
+      .title { font-size: 1.5rem; }
       .slideshow-container { aspect-ratio: 4 / 3; }
       .nav-btn { width: 32px; height: 32px; font-size: 0.9rem; }
-      .nav-btn.prev { left: 6px; }
-      .nav-btn.next { right: 6px; }
-      .slide-caption { font-size: 0.85rem; padding: 1rem 1rem 0.8rem; }
-      .btn-love { font-size: 0.75rem; padding: 0.4rem 0.9rem; }
-    }
-
-    /* Tambahan untuk memastikan gambar benar-benar full di semua ukuran */
-    @media (max-width: 400px) {
-      .slideshow-container { aspect-ratio: 3 / 4; }
-    }
-    @media (min-width: 800px) {
-      .slideshow-container { aspect-ratio: 16 / 10; }
+      .love-btn-overlay { font-size: 0.7rem; padding: 6px 12px; }
+      .slide-caption { font-size: 0.8rem; padding: 1rem 1rem 0.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Floating Hearts -->
+  <!-- ===== HUJAN LOVE BACKGROUND ===== -->
+  <div class="rain-container" id="rainContainer"></div>
+
+  <!-- ===== FLOATING HEARTS ===== -->
   <div class="floating-hearts" id="floatingHearts"></div>
 
-  <!-- Main Card -->
+  <!-- ===== MAIN CARD ===== -->
   <div class="card">
 
-    <h1 class="title">📸 Kenangan Cinta</h1>
-    <div class="subtitle"><i class="fas fa-heart" style="color:#e8436e;"></i> Mia & Frengky <i class="fas fa-heart" style="color:#e8436e;"></i></div>
+    <h1 class="title">💖 Mia & Frengky 💖</h1>
+    <div class="subtitle"><i class="fas fa-heart" style="color:#e8436e;"></i> LDR • Cinta Sejati <i class="fas fa-heart" style="color:#e8436e;"></i></div>
 
     <!-- ===== SLIDESHOW ===== -->
     <div class="slideshow-container" id="slideshowContainer">
 
       <!-- Slide 1 -->
       <div class="slide active" data-index="0">
-        <img src="foto1.jpg" alt="Foto Kenangan 1" loading="lazy">
+        <img src="foto1.jpg" alt="Kenangan 1">
         <div class="slide-caption">
-          <i class="fas fa-heart"></i> Saat pertama kali bertemu
+          <i class="fas fa-heart"></i> Pertama kali bertemu
           <small>Momen yang tak terlupakan</small>
+        </div>
+        <div class="slide-actions">
+          <button class="love-btn-overlay" data-msg="💕 Kenangan manis bersamamu, Mia."><i class="fas fa-heart"></i> Cinta</button>
+          <button class="love-btn-overlay special" data-msg="🌹 Kamu adalah segalanya, Frengky."><i class="fas fa-rose"></i> Rindu</button>
         </div>
       </div>
 
       <!-- Slide 2 -->
       <div class="slide" data-index="1">
-        <img src="foto2.jpg" alt="Foto Kenangan 2" loading="lazy">
+        <img src="foto2.jpg" alt="Kenangan 2">
         <div class="slide-caption">
-          <i class="fas fa-heart"></i> Tawa dan bahagia bersama
+          <i class="fas fa-heart"></i> Tawa dan bahagia
           <small>Setiap detik berharga</small>
+        </div>
+        <div class="slide-actions">
+          <button class="love-btn-overlay" data-msg="💕 Senyummu adalah hariku."><i class="fas fa-heart"></i> Bahagia</button>
+          <button class="love-btn-overlay special" data-msg="🌟 Kamu bintang dalam hidupku."><i class="fas fa-star"></i> Bintang</button>
         </div>
       </div>
 
       <!-- Slide 3 -->
       <div class="slide" data-index="2">
-        <img src="foto3.jpg" alt="Foto Kenangan 3" loading="lazy">
+        <img src="foto3.jpg" alt="Kenangan 3">
         <div class="slide-caption">
-          <i class="fas fa-heart"></i> Cinta yang tumbuh setiap hari
-          <small>Jarak tak pernah jadi penghalang</small>
+          <i class="fas fa-heart"></i> Cinta yang tumbuh
+          <small>Jarak tak jadi penghalang</small>
+        </div>
+        <div class="slide-actions">
+          <button class="love-btn-overlay" data-msg="💕 Setiap hari aku merindukanmu."><i class="fas fa-heart"></i> Rindu</button>
+          <button class="love-btn-overlay special" data-msg="🌈 Cinta kita abadi selamanya."><i class="fas fa-rainbow"></i> Abadi</button>
         </div>
       </div>
 
       <!-- Slide 4 -->
       <div class="slide" data-index="3">
-        <img src="foto4.jpg" alt="Foto Kenangan 4" loading="lazy">
+        <img src="foto4.jpg" alt="Kenangan 4">
         <div class="slide-caption">
           <i class="fas fa-heart"></i> Sampai jumpa di pelukan
           <small>LDR takkan memisahkan kita</small>
         </div>
+        <div class="slide-actions">
+          <button class="love-btn-overlay" data-msg="💕 Aku menunggumu, Mia."><i class="fas fa-heart"></i> Tunggu</button>
+          <button class="love-btn-overlay special" data-msg="🙏 Semoga langgeng sampai i ahti 💖"><i class="fas fa-hands-praying"></i> Doa</button>
+        </div>
       </div>
 
-      <!-- Navigation Buttons -->
-      <button class="nav-btn prev" id="prevSlide" aria-label="Previous">
-        <i class="fas fa-chevron-left"></i>
-      </button>
-      <button class="nav-btn next" id="nextSlide" aria-label="Next">
-        <i class="fas fa-chevron-right"></i>
-      </button>
+      <!-- Navigation -->
+      <button class="nav-btn prev" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
+      <button class="nav-btn next" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
     </div>
 
     <!-- Dots -->
     <div class="dots-container" id="dotsContainer">
-      <button class="dot active" data-index="0" aria-label="Slide 1"></button>
-      <button class="dot" data-index="1" aria-label="Slide 2"></button>
-      <button class="dot" data-index="2" aria-label="Slide 3"></button>
-      <button class="dot" data-index="3" aria-label="Slide 4"></button>
+      <button class="dot active" data-index="0"></button>
+      <button class="dot" data-index="1"></button>
+      <button class="dot" data-index="2"></button>
+      <button class="dot" data-index="3"></button>
     </div>
 
-    <!-- ===== MUSIC PLAYER ===== -->
+    <!-- ===== MUSIC ===== -->
     <div class="music-control">
       <button class="music-btn" id="playPauseBtn">
         <i class="fas fa-play" id="playIcon"></i>
       </button>
-      <span class="music-label"><i class="fas fa-music"></i>  Souqy</span>
+      <span class="music-label"><i class="fas fa-music"></i> Souqy</span>
       <button class="music-btn" id="volumeToggleBtn">
         <i class="fas fa-volume-up" id="volumeIcon"></i>
       </button>
     </div>
 
-    <!-- ===== LOVE BUTTONS ===== -->
-    <div class="love-actions">
-      <button class="btn-love" data-msg="💕 Kenangan manis bersama kamu, Mia."><i class="fas fa-heart"></i> Kenangan</button>
-      <button class="btn-love" data-msg="🌹 Setiap foto adalah cerita cinta kita, Frengky."><i class="fas fa-rose"></i> Cinta</button>
-      <button class="btn-love" data-msg="🌟 Kamu adalah bintang dalam setiap fotoku."><i class="fas fa-star"></i> Bintang</button>
-      <button class="btn-love special-doa" data-msg="🙏 Semoga Mia & Frengky langgeng sampai seterusnya. i ahti 💖"><i class="fas fa-hands-praying"></i> Doa</button>
-    </div>
-
     <!-- ===== ROMANTIC OUTPUT ===== -->
     <div class="romantic-output" id="romanticOutput">
       <div class="love-message">
-        <i class="fas fa-heart" style="color:#e8436e;"></i>  Klik tombol cinta untuk pesan romantis  <i class="fas fa-heart" style="color:#e8436e;"></i>
+        <i class="fas fa-heart" style="color:#e8436e;"></i>  Klik tombol cinta di foto  <i class="fas fa-heart" style="color:#e8436e;"></i>
       </div>
     </div>
 
   </div>
 
-  <!-- ===== AUDIO (Souqy.mp3) ===== -->
+  <!-- ===== AUDIO ===== -->
   <audio id="romanticSong" loop preload="auto">
     <source src="https://raw.githubusercontent.com/frengkysihombing/Romantis/dcc093336370164fe887fee660895562a85185fb/Souqy.mp3" type="audio/mpeg">
   </audio>
@@ -466,17 +512,32 @@
   <script>
     (function() {
 
+      // ========== HUJAN LOVE ==========
+      const rainContainer = document.getElementById('rainContainer');
+      const loveSymbols = ['❤️', '💕', '💖', '💗', '💘', '💝', '🌹', '🌸', '✨'];
+      for (let i = 0; i < 35; i++) {
+        const el = document.createElement('div');
+        el.className = 'rain-heart';
+        el.textContent = loveSymbols[Math.floor(Math.random() * loveSymbols.length)];
+        el.style.left = Math.random() * 100 + '%';
+        el.style.fontSize = (1 + Math.random() * 2.5) + 'rem';
+        el.style.animationDuration = (8 + Math.random() * 15) + 's';
+        el.style.animationDelay = (Math.random() * 12) + 's';
+        el.style.opacity = 0.2 + Math.random() * 0.3;
+        rainContainer.appendChild(el);
+      }
+
       // ========== FLOATING HEARTS ==========
       const heartsContainer = document.getElementById('floatingHearts');
       const symbols = ['❤️', '💕', '💖', '✨', '🌸', '💗', '🌹'];
-      for (let i = 0; i < 25; i++) {
+      for (let i = 0; i < 20; i++) {
         const el = document.createElement('div');
         el.className = 'heart-float';
         el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
         el.style.left = Math.random() * 100 + '%';
-        el.style.fontSize = (1.2 + Math.random() * 2.5) + 'rem';
-        el.style.animationDuration = (12 + Math.random() * 20) + 's';
-        el.style.animationDelay = (Math.random() * 18) + 's';
+        el.style.fontSize = (1.5 + Math.random() * 3) + 'rem';
+        el.style.animationDuration = (14 + Math.random() * 22) + 's';
+        el.style.animationDelay = (Math.random() * 20) + 's';
         heartsContainer.appendChild(el);
       }
 
@@ -491,65 +552,40 @@
       function goToSlide(index) {
         if (index < 0) index = slides.length - 1;
         if (index >= slides.length) index = 0;
-
-        slides.forEach((slide, i) => {
-          slide.classList.toggle('active', i === index);
-        });
-
-        dots.forEach((dot, i) => {
-          dot.classList.toggle('active', i === index);
-        });
-
+        slides.forEach((s, i) => s.classList.toggle('active', i === index));
+        dots.forEach((d, i) => d.classList.toggle('active', i === index));
         currentIndex = index;
       }
 
       function nextSlide() { goToSlide(currentIndex + 1); }
       function prevSlide() { goToSlide(currentIndex - 1); }
 
-      prevBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        prevSlide();
-        resetInterval();
-      });
-
-      nextBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        nextSlide();
-        resetInterval();
-      });
-
+      prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevSlide(); resetInterval(); });
+      nextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextSlide(); resetInterval(); });
       dots.forEach(dot => {
         dot.addEventListener('click', function() {
-          const index = parseInt(this.getAttribute('data-index'));
-          goToSlide(index);
+          goToSlide(parseInt(this.getAttribute('data-index')));
           resetInterval();
         });
       });
 
-      function startInterval() {
-        slideInterval = setInterval(nextSlide, 4000);
-      }
-      function resetInterval() {
-        clearInterval(slideInterval);
-        startInterval();
-      }
+      function startInterval() { slideInterval = setInterval(nextSlide, 4000); }
+      function resetInterval() { clearInterval(slideInterval); startInterval(); }
 
       const container = document.getElementById('slideshowContainer');
       container.addEventListener('mouseenter', () => clearInterval(slideInterval));
       container.addEventListener('mouseleave', startInterval);
       container.addEventListener('touchstart', () => clearInterval(slideInterval));
       container.addEventListener('touchend', startInterval);
-
       startInterval();
 
-      // ========== AUDIO PLAYER ==========
+      // ========== AUDIO ==========
       const audio = document.getElementById('romanticSong');
       const playBtn = document.getElementById('playPauseBtn');
       const playIcon = document.getElementById('playIcon');
       const volumeBtn = document.getElementById('volumeToggleBtn');
       const volumeIcon = document.getElementById('volumeIcon');
-      let isPlaying = false;
-      let isMuted = false;
+      let isPlaying = false, isMuted = false;
 
       function playAudio(showMsg = true) {
         audio.play().then(() => {
@@ -563,7 +599,6 @@
       }
 
       setTimeout(() => playAudio(false), 500);
-
       document.addEventListener('click', function first() {
         if (!isPlaying) playAudio(true);
         document.removeEventListener('click', first);
@@ -577,65 +612,74 @@
 
       playBtn.addEventListener('click', function(e) {
         e.stopPropagation();
-        if (isPlaying) {
-          audio.pause();
-          playIcon.className = 'fas fa-play';
-          isPlaying = false;
-        } else {
-          playAudio(true);
-        }
+        if (isPlaying) { audio.pause(); playIcon.className = 'fas fa-play'; isPlaying = false; }
+        else { playAudio(true); }
       });
 
       volumeBtn.addEventListener('click', function(e) {
         e.stopPropagation();
-        if (isMuted) {
-          audio.muted = false;
-          volumeIcon.className = 'fas fa-volume-up';
-          isMuted = false;
-        } else {
-          audio.muted = true;
-          volumeIcon.className = 'fas fa-volume-mute';
-          isMuted = true;
-        }
+        if (isMuted) { audio.muted = false; volumeIcon.className = 'fas fa-volume-up'; isMuted = false; }
+        else { audio.muted = true; volumeIcon.className = 'fas fa-volume-mute'; isMuted = true; }
       });
       audio.volume = 0.6;
 
-      // ========== ROMANTIC MESSAGES ==========
-      const output = document.getElementById('romanticOutput');
-
-      function showMessage(msg) {
+      // ========== FUNGSI HUJAN LOVE SAAT KLIK ==========
+      function showLoveBurst(msg) {
+        // Tampilkan pesan
+        const output = document.getElementById('romanticOutput');
         output.innerHTML = '';
         const div = document.createElement('div');
         div.className = 'love-message';
         div.innerHTML = `<i class="fas fa-heart" style="color:#e8436e;"></i> ${msg} <i class="fas fa-heart" style="color:#e8436e;"></i>`;
         output.appendChild(div);
 
-        for (let i = 0; i < 5; i++) {
+        // ===== HUJAN LOVE MASSIF =====
+        const emojis = ['❤️', '💕', '💖', '💗', '💘', '💝', '🌹', '🌸', '✨', '💞', '💓', '🥰'];
+        for (let i = 0; i < 40; i++) {
           setTimeout(() => {
-            const burst = document.createElement('div');
-            burst.className = 'burst-heart';
-            burst.textContent = ['❤️', '💗', '💖', '💘', '💝', '✨', '🌹'][Math.floor(Math.random() * 7)];
-            burst.style.left = (10 + Math.random() * 80) + '%';
-            burst.style.top = (10 + Math.random() * 80) + '%';
-            burst.style.setProperty('--tx', (Math.random() * 300 - 150) + 'px');
-            burst.style.setProperty('--ty', (Math.random() * -300 - 80) + 'px');
-            burst.style.fontSize = (2 + Math.random() * 3) + 'rem';
-            document.body.appendChild(burst);
-            setTimeout(() => burst.remove(), 1200);
-          }, i * 100);
+            const el = document.createElement('div');
+            el.className = 'rain-burst';
+            el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            el.style.left = (10 + Math.random() * 80) + '%';
+            el.style.top = (10 + Math.random() * 80) + '%';
+            el.style.setProperty('--tx', (Math.random() * 400 - 200) + 'px');
+            el.style.setProperty('--ty', (Math.random() * -400 - 100) + 'px');
+            el.style.fontSize = (1.5 + Math.random() * 3) + 'rem';
+            el.style.color = ['#e8436e', '#ff6b8a', '#ff8da1', '#ffb6c1', '#d65f7a'][Math.floor(Math.random() * 5)];
+            document.body.appendChild(el);
+            setTimeout(() => el.remove(), 1600);
+          }, i * 40);
         }
+
+        // Efek floating emoji tambahan
+        for (let i = 0; i < 15; i++) {
+          setTimeout(() => {
+            const em = document.createElement('div');
+            em.className = 'floating-emoji';
+            em.textContent = ['💖', '✨', '💕', '🌟', '🥰', '💞', '🌹'][Math.floor(Math.random() * 7)];
+            em.style.left = (5 + Math.random() * 90) + '%';
+            em.style.top = (10 + Math.random() * 80) + '%';
+            em.style.fontSize = (1.5 + Math.random() * 3) + 'rem';
+            document.body.appendChild(em);
+            setTimeout(() => em.remove(), 2200);
+          }, i * 80);
+        }
+
+        if (!isPlaying) playAudio(true);
       }
 
-      document.querySelectorAll('.btn-love').forEach(btn => {
-        btn.addEventListener('click', function() {
+      // ========== TOMBOL CINTA DI DALAM FOTO ==========
+      document.querySelectorAll('.love-btn-overlay').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
           const msg = this.getAttribute('data-msg') || '💖 Cinta abadi untuk Mia & Frengky 💖';
-          showMessage(msg);
-          if (!isPlaying) playAudio(true);
+          showLoveBurst(msg);
         });
       });
 
+      // ========== PESAN DEFAULT ==========
       setTimeout(() => {
-        showMessage('💕 Klik tombol cinta untuk pesan romantis 💕');
+        showLoveBurst('💕 Klik tombol cinta di dalam foto 💕');
       }, 600);
 
     })();
