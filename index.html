@@ -23,6 +23,7 @@
       overflow-x: hidden;
     }
 
+    /* ===== HUJAN LOVE BACKGROUND ===== */
     .rain-container {
       position: fixed;
       top: 0;
@@ -48,6 +49,7 @@
       100% { transform: translateY(110vh) rotate(720deg) scale(1.3); opacity: 0; }
     }
 
+    /* ===== FLOATING HEARTS ===== */
     .floating-hearts {
       position: fixed;
       top: 0;
@@ -72,6 +74,7 @@
       100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
     }
 
+    /* ===== MAIN CARD ===== */
     .card {
       position: relative;
       z-index: 10;
@@ -120,6 +123,7 @@
       50% { transform: scale(1.03); }
     }
 
+    /* ===== SLIDESHOW - PERBAIKAN POINTER EVENTS ===== */
     .slideshow-container {
       position: relative;
       width: 100%;
@@ -130,6 +134,7 @@
       background: #f0e0e8;
     }
 
+    /* ★ PERBAIKAN 1: Slide non-aktif tidak bisa menerima klik ★ */
     .slide {
       position: absolute;
       top: 0;
@@ -143,11 +148,16 @@
       align-items: center;
       justify-content: center;
       background: #f0e0e8;
+      pointer-events: none; /* ← TAMBAHAN: non-aktif tidak bisa diklik */
     }
+
     .slide.active {
       opacity: 1;
       transform: scale(1);
+      pointer-events: auto; /* ← TAMBAHAN: hanya slide aktif yang bisa diklik */
     }
+
+    /* ★ PERBAIKAN 2: Gambar tidak menghalangi klik tombol ★ */
     .slide img {
       width: 100%;
       height: 100%;
@@ -157,8 +167,10 @@
       display: block;
       background: #f0e0e8;
       padding: 4px;
+      pointer-events: none; /* ← TAMBAHAN: gambar tidak menghalangi klik */
     }
 
+    /* ★ PERBAIKAN 3: Tombol di atas semua elemen ★ */
     .slide-actions {
       position: absolute;
       bottom: 24px;
@@ -167,7 +179,7 @@
       display: flex;
       justify-content: center;
       gap: 14px;
-      z-index: 15;
+      z-index: 999; /* ← TAMBAHAN: tombol di atas segalanya */
       flex-wrap: wrap;
       padding: 0 16px;
       opacity: 0;
@@ -175,14 +187,16 @@
       transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s;
       pointer-events: none;
     }
+
     .slide.active .slide-actions {
       opacity: 1;
       transform: translateY(0);
       pointer-events: auto;
     }
 
+    /* ★ PERBAIKAN 4: Tombol siap menerima klik ★ */
     .love-btn-overlay {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.25);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border: 1.5px solid rgba(255, 255, 255, 0.4);
@@ -197,15 +211,15 @@
       align-items: center;
       gap: 10px;
       box-shadow: 0 6px 25px rgba(0,0,0,0.15);
-      pointer-events: auto !important;
       text-shadow: 0 1px 4px rgba(0,0,0,0.2);
       position: relative;
-      z-index: 20;
+      z-index: 1000; /* ← TAMBAHAN: tombol di atas segalanya */
+      pointer-events: auto !important; /* ← TAMBAHAN: tombol selalu bisa diklik */
     }
     .love-btn-overlay i { font-size: 1.1rem; color: #ff6b8a; }
     .love-btn-overlay:hover {
       transform: scale(1.1) translateY(-4px);
-      background: rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.4);
       box-shadow: 0 12px 40px rgba(232, 67, 110, 0.4);
     }
     .love-btn-overlay:active { transform: scale(0.92); }
@@ -218,6 +232,7 @@
       background: linear-gradient(135deg, rgba(232,67,110,0.9), rgba(255,107,138,0.9));
     }
 
+    /* Caption */
     .slide-caption {
       position: absolute;
       top: 0;
@@ -233,6 +248,7 @@
       transition: opacity 0.6s ease;
       pointer-events: none;
       border-radius: 32px 32px 0 0;
+      z-index: 10;
     }
     .slide.active .slide-caption {
       opacity: 1;
@@ -246,6 +262,7 @@
       margin-top: 2px;
     }
 
+    /* Navigation */
     .nav-btn {
       position: absolute;
       top: 50%;
@@ -279,6 +296,7 @@
     .nav-btn.prev { left: 12px; }
     .nav-btn.next { right: 12px; }
 
+    /* Dots */
     .dots-container {
       display: flex;
       justify-content: center;
@@ -301,6 +319,7 @@
       box-shadow: 0 0 20px rgba(232, 67, 110, 0.6);
     }
 
+    /* ===== MUSIC ===== */
     .music-control {
       margin-top: 1.2rem;
       display: flex;
@@ -331,6 +350,7 @@
       letter-spacing: 0.3px;
     }
 
+    /* ===== ROMANTIC OUTPUT ===== */
     .romantic-output {
       margin-top: 1.2rem;
       min-height: 55px;
@@ -360,6 +380,7 @@
       100% { opacity: 1; transform: scale(1); }
     }
 
+    /* ===== HUJAN LOVE SAAT KLIK ===== */
     .rain-burst {
       position: fixed;
       pointer-events: none;
@@ -385,6 +406,7 @@
       100% { opacity: 0; transform: translateY(-250px) scale(2) rotate(40deg); }
     }
 
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 480px) {
       .card { padding: 1.2rem 1rem; border-radius: 32px; }
       .title { font-size: 1.5rem; }
@@ -399,19 +421,22 @@
 </head>
 <body>
 
+  <!-- ===== HUJAN LOVE BACKGROUND ===== -->
   <div class="rain-container" id="rainContainer"></div>
   <div class="floating-hearts" id="floatingHearts"></div>
 
+  <!-- ===== MAIN CARD ===== -->
   <div class="card">
 
     <h1 class="title">💖 Mia & Frengky 💖</h1>
     <div class="subtitle"><i class="fas fa-heart" style="color:#e8436e;"></i> LDR • Cinta Sejati <i class="fas fa-heart" style="color:#e8436e;"></i></div>
 
+    <!-- ===== SLIDESHOW ===== -->
     <div class="slideshow-container" id="slideshowContainer">
 
       <!-- Slide 1 -->
       <div class="slide active" data-index="0">
-        <img src="foto1.jpg" alt="Kenangan 1">
+        <img src="foto1.jpg" alt="Kenangan 1" loading="lazy">
         <div class="slide-caption">
           <i class="fas fa-heart"></i> Pertama kali bertemu
           <small>Momen yang tak terlupakan</small>
@@ -424,7 +449,7 @@
 
       <!-- Slide 2 -->
       <div class="slide" data-index="1">
-        <img src="foto2.jpg" alt="Kenangan 2">
+        <img src="foto2.jpg" alt="Kenangan 2" loading="lazy">
         <div class="slide-caption">
           <i class="fas fa-heart"></i> Tawa dan bahagia
           <small>Setiap detik berharga</small>
@@ -437,7 +462,7 @@
 
       <!-- Slide 3 -->
       <div class="slide" data-index="2">
-        <img src="foto3.jpg" alt="Kenangan 3">
+        <img src="foto3.jpg" alt="Kenangan 3" loading="lazy">
         <div class="slide-caption">
           <i class="fas fa-heart"></i> Cinta yang tumbuh
           <small>Jarak tak jadi penghalang</small>
@@ -450,7 +475,7 @@
 
       <!-- Slide 4 -->
       <div class="slide" data-index="3">
-        <img src="foto4.jpg" alt="Kenangan 4">
+        <img src="foto4.jpg" alt="Kenangan 4" loading="lazy">
         <div class="slide-caption">
           <i class="fas fa-heart"></i> Sampai jumpa di pelukan
           <small>LDR takkan memisahkan kita</small>
@@ -461,10 +486,12 @@
         </div>
       </div>
 
+      <!-- Navigation -->
       <button class="nav-btn prev" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
       <button class="nav-btn next" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
     </div>
 
+    <!-- Dots -->
     <div class="dots-container" id="dotsContainer">
       <button class="dot active" data-index="0"></button>
       <button class="dot" data-index="1"></button>
@@ -472,6 +499,7 @@
       <button class="dot" data-index="3"></button>
     </div>
 
+    <!-- ===== MUSIC ===== -->
     <div class="music-control">
       <button class="music-btn" id="playPauseBtn">
         <i class="fas fa-play" id="playIcon"></i>
@@ -482,6 +510,7 @@
       </button>
     </div>
 
+    <!-- ===== ROMANTIC OUTPUT ===== -->
     <div class="romantic-output" id="romanticOutput">
       <div class="love-message">
         <i class="fas fa-heart" style="color:#e8436e;"></i>  Klik tombol cinta di dalam foto  <i class="fas fa-heart" style="color:#e8436e;"></i>
@@ -490,6 +519,7 @@
 
   </div>
 
+  <!-- ===== AUDIO ===== -->
   <audio id="romanticSong" loop preload="auto">
     <source src="https://raw.githubusercontent.com/frengkysihombing/Romantis/dcc093336370164fe887fee660895562a85185fb/Souqy.mp3" type="audio/mpeg">
   </audio>
@@ -540,9 +570,6 @@
         slides.forEach((s, i) => s.classList.toggle('active', i === index));
         dots.forEach((d, i) => d.classList.toggle('active', i === index));
         currentIndex = index;
-        
-        // Re-attach event listeners ke tombol di slide yang aktif
-        attachButtonListeners();
       }
 
       function nextSlide() { goToSlide(currentIndex + 1); }
@@ -566,29 +593,6 @@
       container.addEventListener('touchstart', () => clearInterval(slideInterval));
       container.addEventListener('touchend', startInterval);
       startInterval();
-
-      // ========== FUNGSI UNTUK MEMASANG LISTENER KE SEMUA TOMBOL ==========
-      function attachButtonListeners() {
-        // Ambil semua tombol love di halaman
-        const allButtons = document.querySelectorAll('.love-btn-overlay');
-        console.log('Total tombol ditemukan:', allButtons.length);
-        
-        allButtons.forEach(btn => {
-          // Hapus listener lama untuk menghindari duplikasi
-          btn.removeEventListener('click', handleLoveClick);
-          // Pasang listener baru
-          btn.addEventListener('click', handleLoveClick);
-        });
-      }
-
-      // ========== FUNGSI HANDLER KLIK TOMBOL ==========
-      function handleLoveClick(e) {
-        e.stopPropagation();
-        e.preventDefault();
-        const msg = this.getAttribute('data-msg') || '💖 Cinta abadi untuk Mia & Frengky 💖';
-        console.log('Tombol diklik:', msg);
-        showLoveBurst(msg);
-      }
 
       // ========== AUDIO ==========
       const audio = document.getElementById('romanticSong');
@@ -683,31 +687,23 @@
         if (!isPlaying) playAudio(false);
       }
 
-      // ========== PASANG LISTENER AWAL ==========
-      attachButtonListeners();
+      // ========== EVENT LISTENER UNTUK SEMUA TOMBOL (DELEGASI) ==========
+      // Cara paling aman: gunakan event delegation dari container
+      document.addEventListener('click', function(e) {
+        const btn = e.target.closest('.love-btn-overlay');
+        if (btn) {
+          e.stopPropagation();
+          e.preventDefault();
+          const msg = btn.getAttribute('data-msg') || '💖 Cinta abadi untuk Mia & Frengky 💖';
+          console.log('Tombol diklik:', msg);
+          showLoveBurst(msg);
+        }
+      });
 
       // ========== PESAN DEFAULT ==========
       setTimeout(() => {
         showLoveBurst('💕 Klik tombol cinta di dalam foto untuk pesan romantis 💕');
       }, 800);
-
-      // ========== MUTASI OBSERVER UNTUK MENANGANI PERUBAHAN DOM ==========
-      // Jika ada tombol yang ditambahkan secara dinamis, kita tangani
-      const observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-          if (mutation.addedNodes.length > 0) {
-            // Cek apakah ada tombol love yang ditambahkan
-            const hasLoveButton = Array.from(mutation.addedNodes).some(node => 
-              node.nodeType === 1 && (node.classList?.contains('love-btn-overlay') || node.querySelector?.('.love-btn-overlay'))
-            );
-            if (hasLoveButton) {
-              attachButtonListeners();
-            }
-          }
-        });
-      });
-
-      observer.observe(document.body, { childList: true, subtree: true });
 
     })();
   </script>
