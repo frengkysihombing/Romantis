@@ -366,56 +366,88 @@
       const volumeIcon = document.getElementById('volumeIcon');
       let isPlaying = false;
       let isMuted = false;
+      let autoplayAttempted = false;
 
-      function playAudio() {
+      // Fungsi untuk memutar audio (TANPA pesan error di awal)
+      function playAudio(showMessageOnError = true) {
         audio.play().then(() => {
           isPlaying = true;
           playIcon.className = 'fas fa-pause';
           console.log('✅ BERHASIL! Souqy.mp3 diputar!');
-          showMessage('🎵 Sedang memutar lagu Souqy untuk Mia & Frengky 💖');
+          // Tampilkan pesan sukses hanya jika autoplay berhasil
+          if (showMessageOnError) {
+            showMessage('🎵 Sedang memutar lagu Souqy untuk Mia & Frengky 💖');
+          }
         }).catch((err) => {
-          console.error('❌ GAGAL memutar lagu:', err);
-          showMessage('⚠️ Gagal memutar lagu. Coba klik tombol play!');
+          console.warn('Autoplay diblokir oleh browser:', err);
+          // Jangan tampilkan error di awal, hanya di console
+          if (showMessageOnError) {
+            // Hanya tampilkan jika bukan autoplay pertama
+            showMessage('🎵 Klik tombol play untuk memutar lagu 💖');
+          }
           playIcon.className = 'fas fa-play';
           isPlaying = false;
         });
       }
 
-      // Autoplay
-      setTimeout(playAudio, 500);
-      document.addEventListener('click', function first() {
-        if (!isPlaying) playAudio();
-        document.removeEventListener('click', first);
-        document.removeEventListener('touchstart', first);
+      // Autoplay - diam-diam coba putar, tanpa error message
+      setTimeout(() => {
+        autoplayAttempted = true;
+        playAudio(false); // false = jangan tampilkan pesan error
+      }, 500);
+
+      // Event listener untuk interaksi user pertama kali
+      document.addEventListener('click', function firstInteraction() {
+        if (!isPlaying) {
+          playAudio(true);
+        }
+        document.removeEventListener('click', firstInteraction);
+        document.removeEventListener('touchstart', firstInteraction);
       }, { once: true });
+      
       document.addEventListener('touchstart', function firstTouch() {
-        if (!isPlaying) playAudio();
+        if (!isPlaying) {
+          playAudio(true);
+        }
         document.removeEventListener('click', firstTouch);
         document.removeEventListener('touchstart', firstTouch);
       }, { once: true });
 
+      // Tombol Play/Pause
       playBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         if (isPlaying) {
           audio.pause();
           playIcon.className = 'fas fa-play';
           isPlaying = false;
+          showMessage('⏸️ Lagu dijeda. Klik play untuk melanjutkan 💕');
         } else {
-          playAudio();
+          playAudio(true);
         }
       });
 
+      // Volume toggle
       volumeBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         if (isMuted) {
           audio.muted = false;
           volumeIcon.className = 'fas fa-volume-up';
           isMuted = false;
+          showMessage('🔊 Suara diaktifkan kembali');
         } else {
           audio.muted = true;
           volumeIcon.className = 'fas fa-volume-mute';
           isMuted = true;
+          showMessage('🔇 Suara dimatikan');
         }
+        // Kembali ke pesan default setelah 2 detik
+        setTimeout(() => {
+          if (isPlaying) {
+            showMessage('🎵 Sedang memutar lagu Souqy untuk Mia & Frengky 💖');
+          } else {
+            showMessage('🎵 Klik tombol play untuk memutar lagu 💖');
+          }
+        }, 2000);
       });
       audio.volume = 0.6;
 
@@ -428,6 +460,7 @@
         div.className = 'love-message';
         div.innerHTML = `<i class="fas fa-heart" style="color:#e8436e;"></i> ${msg} <i class="fas fa-heart" style="color:#e8436e;"></i>`;
         output.appendChild(div);
+        // Animasi burst heart
         for (let i = 0; i < 3; i++) {
           setTimeout(() => {
             const em = document.createElement('div');
@@ -456,14 +489,18 @@
         }
       }
 
+      // Tombol cinta biasa
       document.querySelectorAll('.btn-love:not(.btn-special)').forEach(btn => {
         btn.addEventListener('click', function() {
           const msg = this.getAttribute('data-msg') || 'Cinta abadi untuk Mia & Frengky ❤️';
           showMessage(msg);
-          if (!isPlaying) playAudio();
+          if (!isPlaying) {
+            playAudio(true);
+          }
         });
       });
 
+      // Tombol SPESIAL
       document.getElementById('specialDoaBtn').addEventListener('click', function() {
         const msg = `🌹 Semoga Mia & Frengky langgeng sampai seterusnya, di dalam doa selalu ada i ahti 💖✨ Cinta sejati tak kenal jarak, hanya kenal rindu dan kesetiaan. 🙏`;
         showMessage(msg);
@@ -494,21 +531,30 @@
           document.body.appendChild(em);
           setTimeout(() => em.remove(), 2500);
         }, 400);
-        if (!isPlaying) playAudio();
+        if (!isPlaying) {
+          playAudio(true);
+        }
       });
 
+      // Default message (tanpa error)
       setTimeout(() => {
         showMessage('💕 Klik tombol cinta, rasakan hangatnya rindu LDR 💕');
-      }, 400);
+      }, 600);
 
+      // Event listener untuk error (hanya log di console, tidak tampilkan ke user)
       audio.addEventListener('error', function(e) {
-        console.error('❌ ERROR: Gagal memuat Souqy.mp3');
-        showMessage('⚠️ Lagu tidak ditemukan. Pastikan file ada di repository!');
+        console.warn('⚠️ Error audio (tidak fatal):', e);
+        // Jangan tampilkan pesan error ke user, biarkan tombol play yang bekerja
       });
 
       audio.addEventListener('canplaythrough', function() {
         console.log('✅ Souqy.mp3 BERHASIL dimuat!');
+        // Jika autoplay berhasil, ubah pesan
+        if (isPlaying) {
+          showMessage('🎵 Sedang memutar lagu Souqy untuk Mia & Frengky 💖');
+        }
       });
+
     })();
   </script>
 </body>
