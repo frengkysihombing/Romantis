@@ -6,12 +6,12 @@
   <title>💖 Mia & Frengky • Love Story 💖</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300;400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Quicksand', sans-serif;
+      font-family: 'Nunito', 'Quicksand', sans-serif;
       min-height: 100vh;
       display: flex;
       justify-content: center;
@@ -196,7 +196,7 @@
     }
     @keyframes rotateGlow { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-    /* ===== ★ SLIDE DARI SAMPING KIRI/KANAN ★ ===== */
+    /* ===== SLIDE DARI SAMPING ===== */
     .slide {
       position: absolute;
       top: 10px;
@@ -214,45 +214,14 @@
       backdrop-filter: blur(5px);
     }
 
-    /* Slide masuk dari kiri */
-    .slide.slide-left {
-      left: -120%;
-      transform: scale(0.9) rotate(-3deg);
-    }
-    .slide.slide-left.active {
-      left: 10px;
-      opacity: 1;
-      transform: scale(1) rotate(0deg);
-      pointer-events: auto;
-    }
+    .slide.slide-left { left: -120%; transform: scale(0.9) rotate(-3deg); }
+    .slide.slide-left.active { left: 10px; opacity: 1; transform: scale(1) rotate(0deg); pointer-events: auto; }
 
-    /* Slide masuk dari kanan */
-    .slide.slide-right {
-      left: 120%;
-      transform: scale(0.9) rotate(3deg);
-    }
-    .slide.slide-right.active {
-      left: 10px;
-      opacity: 1;
-      transform: scale(1) rotate(0deg);
-      pointer-events: auto;
-    }
+    .slide.slide-right { left: 120%; transform: scale(0.9) rotate(3deg); }
+    .slide.slide-right.active { left: 10px; opacity: 1; transform: scale(1) rotate(0deg); pointer-events: auto; }
 
-    /* Slide keluar ke kiri */
-    .slide.slide-left.exit {
-      left: -120%;
-      opacity: 0;
-      transform: scale(0.9) rotate(-3deg);
-      pointer-events: none;
-    }
-
-    /* Slide keluar ke kanan */
-    .slide.slide-right.exit {
-      left: 120%;
-      opacity: 0;
-      transform: scale(0.9) rotate(3deg);
-      pointer-events: none;
-    }
+    .slide.slide-left.exit { left: -120%; opacity: 0; transform: scale(0.9) rotate(-3deg); pointer-events: none; }
+    .slide.slide-right.exit { left: 120%; opacity: 0; transform: scale(0.9) rotate(3deg); pointer-events: none; }
 
     .slide img {
       width: 100%;
@@ -267,7 +236,7 @@
       filter: drop-shadow(0 4px 20px rgba(0,0,0,0.3));
     }
 
-    /* ===== LOVE ANIMASI DI TENGAH FOTO ===== */
+    /* ===== LOVE ANIMASI ===== */
     .love-overlay {
       position: absolute;
       top: 0;
@@ -376,40 +345,43 @@
       50% { opacity: 1; transform: scale(1.5); }
     }
 
-    /* ===== CAPTION ===== */
+    /* ===== ★ CAPTION - FONT MUDAH DIBACA ★ ===== */
     .slide-caption {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       padding: 1.2rem 1.5rem 0.8rem;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 100%);
-      color: rgba(255,255,255,0.9);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, transparent 100%);
+      color: #ffffff;
       text-align: left;
-      font-weight: 600;
-      font-size: 0.95rem;
+      font-weight: 700;
+      font-size: 1.1rem;
       opacity: 0;
       transition: opacity 0.8s ease 0.3s;
       pointer-events: none;
       border-radius: 14px 14px 0 0;
       z-index: 10;
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+      font-family: 'Nunito', 'Quicksand', sans-serif;
+      font-style: normal;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+      letter-spacing: 0.3px;
+      line-height: 1.4;
     }
     .slide.active .slide-caption { opacity: 1; }
-    .slide-caption i { color: #ff6b8a; margin-right: 8px; }
+    .slide-caption i { color: #ff6b8a; margin-right: 10px; }
     .slide-caption small {
       display: block;
-      font-weight: 300;
-      font-size: 0.7rem;
-      opacity: 0.6;
-      margin-top: 2px;
+      font-weight: 400;
+      font-size: 0.8rem;
+      opacity: 0.8;
+      margin-top: 4px;
+      font-family: 'Nunito', 'Quicksand', sans-serif;
       font-style: normal;
-      font-family: 'Quicksand', sans-serif;
+      letter-spacing: 0.2px;
     }
 
-    /* ===== TOMBOL ===== */
+    /* ===== ★ TOMBOL - FONT MUDAH DIBACA ★ ===== */
     .slide-actions {
       position: absolute;
       bottom: 20px;
@@ -429,33 +401,34 @@
     .slide.active .slide-actions { opacity: 1; transform: translateY(0); pointer-events: auto; }
 
     .love-btn-overlay {
-      background: rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.08);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,215,220,0.1);
-      color: rgba(255,255,255,0.9);
+      border: 1px solid rgba(255,215,220,0.12);
+      color: #ffffff;
       padding: 14px 28px;
       border-radius: 60px;
-      font-weight: 600;
-      font-size: 0.95rem;
+      font-weight: 700;
+      font-size: 1rem;
       cursor: pointer;
       transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
       display: inline-flex;
       align-items: center;
       gap: 10px;
       box-shadow: 0 4px 30px rgba(0,0,0,0.2);
-      text-shadow: 0 1px 10px rgba(0,0,0,0.3);
+      text-shadow: 0 1px 10px rgba(0,0,0,0.2);
       position: relative;
       z-index: 1000;
       pointer-events: auto !important;
       letter-spacing: 0.5px;
-      font-family: 'Playfair Display', serif;
+      font-family: 'Nunito', 'Quicksand', sans-serif;
+      font-style: normal;
     }
-    .love-btn-overlay i { font-size: 1rem; color: #ff6b8a; }
+    .love-btn-overlay i { font-size: 1.1rem; color: #ff6b8a; }
     .love-btn-overlay:hover {
       transform: scale(1.08) translateY(-4px);
-      background: rgba(255,255,255,0.12);
-      border-color: rgba(255,215,220,0.2);
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,215,220,0.25);
       box-shadow: 0 8px 40px rgba(232,67,110,0.2), 0 0 60px rgba(232,67,110,0.05);
     }
     .love-btn-overlay:active { transform: scale(0.94); }
@@ -559,16 +532,16 @@
       padding: 0.6rem 1.6rem;
       border-radius: 60px;
       font-weight: 600;
-      color: rgba(255,215,220,0.6);
-      font-size: 0.85rem;
+      color: rgba(255,215,220,0.7);
+      font-size: 0.9rem;
       border: 1px solid rgba(255,215,220,0.04);
       animation: fadePop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      letter-spacing: 0.5px;
+      font-family: 'Nunito', 'Quicksand', sans-serif;
+      font-style: normal;
+      letter-spacing: 0.3px;
     }
     .love-message i { color: #e8436e; }
     @keyframes fadePop { 0% { opacity: 0; transform: scale(0.8); } 100% { opacity: 1; transform: scale(1); } }
@@ -600,11 +573,12 @@
     @media (max-width: 480px) {
       .card { padding: 1.5rem 1rem; border-radius: 32px; }
       .title { font-size: 1.8rem; }
-      .love-btn-overlay { font-size: 0.7rem; padding: 10px 16px; gap: 6px; }
-      .love-btn-overlay i { font-size: 0.75rem; }
+      .slide-caption { font-size: 0.85rem; padding: 0.8rem 1rem 0.5rem; }
+      .slide-caption small { font-size: 0.65rem; }
+      .love-btn-overlay { font-size: 0.75rem; padding: 10px 16px; gap: 6px; }
+      .love-btn-overlay i { font-size: 0.8rem; }
       .slide-actions { bottom: 12px; gap: 8px; }
       .nav-btn { width: 32px; height: 32px; font-size: 0.8rem; }
-      .slide-caption { font-size: 0.75rem; padding: 0.8rem 1rem 0.5rem; }
       .ornament-top, .ornament-bottom { font-size: 0.7rem; }
       .ornament-top .line, .ornament-bottom .line { max-width: 30px; }
       .love-overlay .floating-heart { font-size: 1.8rem !important; }
@@ -612,8 +586,9 @@
       .slide.active .love-ring { transform: translate(-50%, -50%) scale(1.5); }
     }
     @media (max-width: 380px) {
-      .love-btn-overlay { font-size: 0.6rem; padding: 8px 12px; gap: 4px; }
-      .love-btn-overlay i { font-size: 0.65rem; }
+      .slide-caption { font-size: 0.75rem; }
+      .love-btn-overlay { font-size: 0.65rem; padding: 8px 12px; gap: 4px; }
+      .love-btn-overlay i { font-size: 0.7rem; }
       .slide-actions { bottom: 8px; gap: 6px; }
       .love-overlay .floating-heart { font-size: 1.4rem !important; }
     }
@@ -643,7 +618,7 @@
 
       <div class="paper-frame">
 
-        <!-- Slide 1 - Masuk dari KIRI -->
+        <!-- Slide 1 -->
         <div class="slide slide-left active" data-index="0">
           <img src="foto1.jpg" alt="Kenangan 1" loading="lazy">
           <div class="love-overlay">
@@ -672,12 +647,12 @@
             <small>Momen yang tak terlupakan</small>
           </div>
           <div class="slide-actions">
-            <button class="love-btn-overlay" data-msg="💕 Kenangan manis pertama kali kita bertemu, Mia. Aku takkan pernah melupakannya."><i class="fas fa-heart"></i> Kenangan</button>
-            <button class="love-btn-overlay special" data-msg="🌹 Senyummu di hari itu membuat hatiku bergetar, Frengky. Aku langsung jatuh cinta."><i class="fas fa-rose"></i> Cinta</button>
+            <button class="love-btn-overlay" data-msg="💕 Kenangan pertama kali kita bertemu, Aku takkan pernah melupakan semuanya."><i class="fas fa-heart"></i> Kenangan</button>
+            <button class="love-btn-overlay special" data-msg="🌹 Senyummu, Candamu adalah semangat ku saat ini."><i class="fas fa-rose"></i> Cinta</button>
           </div>
         </div>
 
-        <!-- Slide 2 - Masuk dari KANAN -->
+        <!-- Slide 2 -->
         <div class="slide slide-right" data-index="1">
           <img src="foto2.jpg" alt="Kenangan 2" loading="lazy">
           <div class="love-overlay">
@@ -706,12 +681,12 @@
             <small>Setiap detik berharga</small>
           </div>
           <div class="slide-actions">
-            <button class="love-btn-overlay" data-msg="💕 Tawa bahagia kita bersama adalah obat rinduku setiap hari, Mia."><i class="fas fa-heart"></i> Bahagia</button>
-            <button class="love-btn-overlay special" data-msg="🌟 Kamu adalah bintang yang menerangi setiap hariku, Frengky. Tanpamu gelap."><i class="fas fa-star"></i> Bintang</button>
+            <button class="love-btn-overlay" data-msg="💕 Tawa bahagia kita bersama adalah obat rinduku setiap hari."><i class="fas fa-heart"></i> Bahagia</button>
+            <button class="love-btn-overlay special" data-msg="🌟 Kamu adalah bintang yang menerangi setiap hariku, Tanpamu semuanya gelap."><i class="fas fa-star"></i> Bintang</button>
           </div>
         </div>
 
-        <!-- Slide 3 - Masuk dari KIRI -->
+        <!-- Slide 3 -->
         <div class="slide slide-left" data-index="2">
           <img src="foto3.jpg" alt="Kenangan 3" loading="lazy">
           <div class="love-overlay">
@@ -740,12 +715,12 @@
             <small>Jarak tak jadi penghalang</small>
           </div>
           <div class="slide-actions">
-            <button class="love-btn-overlay" data-msg="💕 Setiap hari aku merindukanmu lebih dalam, Mia. Jarak tak mengurangi cintaku."><i class="fas fa-heart"></i> Rindu</button>
-            <button class="love-btn-overlay special" data-msg="🌈 Cinta kita sekuat pelangi, melewati badai LDR dengan indah, Frengky."><i class="fas fa-rainbow"></i> Pelangi</button>
+            <button class="love-btn-overlay" data-msg="💕 Setiap hari aku merindukanmu lebih dalam, Jarak tak mengurangi cintaku."><i class="fas fa-heart"></i> Rindu</button>
+            <button class="love-btn-overlay special" data-msg="🌈 Cinta kita sekuat pelangi, melewati badai LDR dengan indah."><i class="fas fa-rainbow"></i> Pelangi</button>
           </div>
         </div>
 
-        <!-- Slide 4 - Masuk dari KANAN -->
+        <!-- Slide 4 -->
         <div class="slide slide-right" data-index="3">
           <img src="foto4.jpg" alt="Kenangan 4" loading="lazy">
           <div class="love-overlay">
@@ -774,8 +749,8 @@
             <small>LDR takkan memisahkan kita</small>
           </div>
           <div class="slide-actions">
-            <button class="love-btn-overlay" data-msg="💕 Aku menunggumu dengan sepenuh hati, Mia. Sampai kita bertemu lagi."><i class="fas fa-heart"></i> Tunggu</button>
-            <button class="love-btn-overlay special" data-msg="🙏 Semoga cinta kita langgeng sampai i ahti, Frengky. Dalam doa selalu ada kamu."><i class="fas fa-hands-praying"></i> Doa</button>
+            <button class="love-btn-overlay" data-msg="💕 Aku menunggumu dengan sepenuh hati,  Sampai kita bertemu lagi."><i class="fas fa-heart"></i> Tunggu</button>
+            <button class="love-btn-overlay special" data-msg="🙏 Semoga cinta kita langgeng sampai kita bisa bertemu kembali, Frengky. Dalam doa selalu ada kamu."><i class="fas fa-hands-praying"></i> Doa</button>
           </div>
         </div>
 
@@ -853,7 +828,7 @@
         rainContainer.appendChild(el);
       }
 
-      // ========== SLIDESHOW DENGAN EFEK SAMPING ==========
+      // ========== SLIDESHOW ==========
       const slides = document.querySelectorAll('.slide');
       const dots = document.querySelectorAll('.dot');
       const prevBtn = document.getElementById('prevSlide');
@@ -869,30 +844,23 @@
         
         isTransitioning = true;
         
-        // Tentukan arah slide
         const direction = index > currentIndex ? 'right' : 'left';
-        const oppositeDirection = index > currentIndex ? 'left' : 'right';
         
-        // Hapus semua class active dan exit dari semua slide
         slides.forEach(s => {
           s.classList.remove('active', 'exit');
         });
         
-        // Slide saat ini keluar ke arah yang berlawanan
         const currentSlide = slides[currentIndex];
         if (currentSlide.classList.contains('slide-left')) {
           currentSlide.classList.add('exit');
         } else if (currentSlide.classList.contains('slide-right')) {
           currentSlide.classList.add('exit');
         } else {
-          // Fallback
           currentSlide.style.left = direction === 'right' ? '-120%' : '120%';
           currentSlide.style.opacity = '0';
         }
         
-        // Slide berikutnya masuk dari arah yang sesuai
         const nextSlide = slides[index];
-        // Reset posisi slide berikutnya
         if (direction === 'right') {
           nextSlide.style.left = '120%';
           nextSlide.style.opacity = '0';
@@ -903,19 +871,15 @@
           nextSlide.style.transform = 'scale(0.9) rotate(-3deg)';
         }
         
-        // Force reflow
         void nextSlide.offsetWidth;
         
-        // Aktifkan slide berikutnya dengan animasi masuk
         nextSlide.classList.add('active');
         nextSlide.style.left = '10px';
         nextSlide.style.opacity = '1';
         nextSlide.style.transform = 'scale(1) rotate(0deg)';
         
-        // Update dots
         dots.forEach((d, i) => d.classList.toggle('active', i === index));
         
-        // Reset love overlay animation
         const overlay = nextSlide.querySelector('.love-overlay');
         if (overlay) {
           overlay.style.opacity = '0';
@@ -928,7 +892,6 @@
         
         setTimeout(() => {
           isTransitioning = false;
-          // Bersihkan style inline setelah animasi selesai
           slides.forEach(s => {
             if (!s.classList.contains('active')) {
               s.style.left = '';
@@ -939,19 +902,8 @@
         }, 900);
       }
 
-      function nextSlideFn() { 
-        if (!isTransitioning) {
-          goToSlide(currentIndex + 1);
-          resetInterval();
-        }
-      }
-      
-      function prevSlideFn() { 
-        if (!isTransitioning) {
-          goToSlide(currentIndex - 1);
-          resetInterval();
-        }
-      }
+      function nextSlideFn() { if (!isTransitioning) { goToSlide(currentIndex + 1); resetInterval(); } }
+      function prevSlideFn() { if (!isTransitioning) { goToSlide(currentIndex - 1); resetInterval(); } }
 
       prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevSlideFn(); });
       nextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextSlideFn(); });
