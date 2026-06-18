@@ -6,7 +6,7 @@
   <title>💖 Mia & Frengky • Love Story 💖</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300;400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Quicksand:wght@300;400;600;700&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -16,7 +16,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 1.5rem;
+      padding: 1.2rem;
       margin: 0;
       position: relative;
       overflow-x: hidden;
@@ -31,10 +31,10 @@
       width: 100%;
       height: 100%;
       background: 
-        radial-gradient(ellipse at 20% 50%, rgba(232,67,110,0.15) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 50%, rgba(255,107,138,0.1) 0%, transparent 60%),
-        radial-gradient(ellipse at 50% 100%, rgba(180,60,100,0.08) 0%, transparent 50%),
-        linear-gradient(135deg, #0a0a0f 0%, #1a0a12 30%, #0d0a1a 60%, #0a0a0f 100%);
+        radial-gradient(ellipse at 20% 50%, rgba(212, 175, 55, 0.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 50%, rgba(232,67,110,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 50% 100%, rgba(180,60,100,0.06) 0%, transparent 50%),
+        linear-gradient(135deg, #0a0a0f 0%, #1a0a0f 30%, #0d0a1a 60%, #0a0a0f 100%);
       z-index: 0;
     }
 
@@ -50,9 +50,9 @@
     }
     .star {
       position: absolute;
-      width: 3px;
-      height: 3px;
-      background: white;
+      width: 2px;
+      height: 2px;
+      background: rgba(255,215,220,0.3);
       border-radius: 50%;
       animation: twinkle var(--duration) ease-in-out infinite alternate;
     }
@@ -71,19 +71,19 @@
       z-index: 0;
       overflow: hidden;
     }
-    .rain-heart {
+    .rain-item {
       position: absolute;
-      font-size: 1.8rem;
-      color: rgba(232, 67, 110, 0.12);
+      font-size: 1.6rem;
       animation: rainFall linear infinite;
       pointer-events: none;
       user-select: none;
+      opacity: 0.15;
     }
     @keyframes rainFall {
       0% { transform: translateY(-10vh) rotate(0deg) scale(0.8); opacity: 0.1; }
-      10% { opacity: 0.5; }
-      90% { opacity: 0.5; }
-      100% { transform: translateY(110vh) rotate(720deg) scale(1.3); opacity: 0; }
+      10% { opacity: 0.4; }
+      90% { opacity: 0.4; }
+      100% { transform: translateY(110vh) rotate(720deg) scale(1.2); opacity: 0; }
     }
 
     .card {
@@ -91,13 +91,13 @@
       z-index: 10;
       max-width: 720px;
       width: 100%;
-      background: rgba(255, 248, 250, 0.06);
+      background: rgba(255, 248, 250, 0.04);
       backdrop-filter: blur(30px);
       -webkit-backdrop-filter: blur(30px);
-      border-radius: 56px;
-      padding: 2.5rem 2rem 2.5rem;
-      border: 1px solid rgba(255, 215, 220, 0.08);
-      box-shadow: 0 40px 100px rgba(0,0,0,0.5), 0 0 80px rgba(232,67,110,0.05), inset 0 1px 0 rgba(255,255,255,0.05);
+      border-radius: 48px;
+      padding: 2.8rem 2rem 2.8rem;
+      border: 1px solid rgba(255, 215, 220, 0.06);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.5), 0 0 80px rgba(212,175,55,0.03), inset 0 1px 0 rgba(255,255,255,0.03);
       text-align: center;
     }
 
@@ -108,8 +108,8 @@
       pointer-events: none;
       z-index: -1;
     }
-    .glow-orb.orb1 { width: 300px; height: 300px; top: -100px; right: -100px; background: rgba(232,67,110,0.15); }
-    .glow-orb.orb2 { width: 250px; height: 250px; bottom: -80px; left: -80px; background: rgba(255,107,138,0.1); }
+    .glow-orb.orb1 { width: 300px; height: 300px; top: -100px; right: -100px; background: rgba(212,175,55,0.08); }
+    .glow-orb.orb2 { width: 250px; height: 250px; bottom: -80px; left: -80px; background: rgba(232,67,110,0.06); }
 
     .ornament-top {
       display: flex;
@@ -117,126 +117,166 @@
       align-items: center;
       gap: 14px;
       margin-bottom: 0.8rem;
-      color: rgba(255,215,220,0.4);
-      font-size: 1rem;
+      color: rgba(212,175,55,0.3);
+      font-size: 0.9rem;
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      letter-spacing: 3px;
+      letter-spacing: 4px;
     }
-    .ornament-top .line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(255,215,220,0.2), transparent); max-width: 60px; }
-    .ornament-top i { color: rgba(232,67,110,0.5); font-size: 0.8rem; }
+    .ornament-top .line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(212,175,55,0.15), transparent); max-width: 50px; }
+    .ornament-top i { color: rgba(212,175,55,0.3); font-size: 0.7rem; }
+
+    .invite-text {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-size: 0.8rem;
+      letter-spacing: 6px;
+      color: rgba(212,175,55,0.4);
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
 
     .title {
       font-family: 'Playfair Display', serif;
       font-weight: 700;
-      font-size: 2.6rem;
-      letter-spacing: -0.5px;
+      font-size: 2.8rem;
+      letter-spacing: 2px;
       margin-bottom: 0.2rem;
-      background: linear-gradient(135deg, #ffb6c9, #ff6b8a, #e8436e, #d65f7a);
+      background: linear-gradient(135deg, #d4af37, #f5d98e, #d4af37, #b8962e);
       background-size: 300% 300%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      animation: gradientShift 4s ease-in-out infinite;
+      animation: goldShift 4s ease-in-out infinite;
     }
-    @keyframes gradientShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+    @keyframes goldShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
 
-    .subtitle {
+    .names {
       font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-weight: 400;
-      font-size: 0.95rem;
-      color: rgba(255,215,220,0.6);
-      background: rgba(255, 255, 255, 0.03);
-      display: inline-block;
-      padding: 0.3rem 2rem;
-      border-radius: 40px;
-      backdrop-filter: blur(4px);
-      margin-bottom: 1.5rem;
-      border: 1px solid rgba(255,215,220,0.06);
-      letter-spacing: 2px;
+      font-weight: 700;
+      font-size: 3rem;
+      letter-spacing: 4px;
+      margin: 0.2rem 0 0.3rem;
+      background: linear-gradient(135deg, #ffffff, #f5e6d3, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 60px rgba(255,255,255,0.05);
     }
-    .subtitle i { color: rgba(232,67,110,0.5); margin: 0 6px; }
+    .names .ampersand {
+      font-size: 2.2rem;
+      color: rgba(212,175,55,0.3);
+      -webkit-text-fill-color: rgba(212,175,55,0.3);
+      margin: 0 6px;
+    }
+
+    .date-main {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-size: 1.2rem;
+      letter-spacing: 3px;
+      color: rgba(255,215,220,0.4);
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+    .date-main strong {
+      color: rgba(255,215,220,0.7);
+      font-weight: 600;
+    }
+
+    .divider {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin: 1.2rem 0;
+    }
+    .divider .line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(212,175,55,0.15), transparent);
+      max-width: 40px;
+    }
+    .divider i {
+      color: rgba(212,175,55,0.2);
+      font-size: 0.7rem;
+    }
 
     /* ===== SLIDESHOW ===== */
     .slideshow-container {
       position: relative;
       width: 100%;
-      border-radius: 28px;
+      border-radius: 24px;
       overflow: visible;
       aspect-ratio: 4 / 3;
       background: transparent;
-      padding: 6px;
+      padding: 4px;
+      margin: 0.5rem 0;
     }
 
-    .paper-frame {
+    .photo-frame {
       position: relative;
       width: 100%;
       height: 100%;
-      border-radius: 24px;
-      background: rgba(255,248,250,0.03);
+      border-radius: 20px;
+      background: rgba(255,248,250,0.02);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 4px 30px rgba(0,0,0,0.3), inset 0 0 60px rgba(232,67,110,0.03);
-      padding: 10px;
-      border: 1px solid rgba(255,215,220,0.06);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.2), inset 0 0 60px rgba(212,175,55,0.02);
+      padding: 8px;
+      border: 1px solid rgba(212,175,55,0.06);
       overflow: hidden;
     }
 
-    .paper-frame::before {
+    .photo-frame::before {
       content: '';
       position: absolute;
       top: -50%;
       left: -50%;
       width: 200%;
       height: 200%;
-      background: conic-gradient(from 0deg, transparent, rgba(232,67,110,0.03), transparent, rgba(255,107,138,0.03), transparent);
+      background: conic-gradient(from 0deg, transparent, rgba(212,175,55,0.02), transparent, rgba(232,67,110,0.02), transparent);
       animation: rotateGlow 20s linear infinite;
       pointer-events: none;
     }
     @keyframes rotateGlow { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-    /* ===== SLIDE DARI SAMPING ===== */
     .slide {
       position: absolute;
-      top: 10px;
-      width: calc(100% - 20px);
-      height: calc(100% - 20px);
+      top: 8px;
+      width: calc(100% - 16px);
+      height: calc(100% - 16px);
       opacity: 0;
       transition: all 0.9s cubic-bezier(0.4, 0, 0.2, 1);
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(10,10,15,0.3);
-      border-radius: 18px;
+      background: rgba(10,10,15,0.2);
+      border-radius: 16px;
       pointer-events: none;
       overflow: hidden;
-      backdrop-filter: blur(5px);
     }
-
-    .slide.slide-left { left: -120%; transform: scale(0.9) rotate(-3deg); }
-    .slide.slide-left.active { left: 10px; opacity: 1; transform: scale(1) rotate(0deg); pointer-events: auto; }
-
-    .slide.slide-right { left: 120%; transform: scale(0.9) rotate(3deg); }
-    .slide.slide-right.active { left: 10px; opacity: 1; transform: scale(1) rotate(0deg); pointer-events: auto; }
-
-    .slide.slide-left.exit { left: -120%; opacity: 0; transform: scale(0.9) rotate(-3deg); pointer-events: none; }
-    .slide.slide-right.exit { left: 120%; opacity: 0; transform: scale(0.9) rotate(3deg); pointer-events: none; }
+    .slide.slide-left { left: -120%; transform: scale(0.9) rotate(-2deg); }
+    .slide.slide-left.active { left: 8px; opacity: 1; transform: scale(1) rotate(0deg); pointer-events: auto; }
+    .slide.slide-right { left: 120%; transform: scale(0.9) rotate(2deg); }
+    .slide.slide-right.active { left: 8px; opacity: 1; transform: scale(1) rotate(0deg); pointer-events: auto; }
+    .slide.slide-left.exit { left: -120%; opacity: 0; transform: scale(0.9) rotate(-2deg); pointer-events: none; }
+    .slide.slide-right.exit { left: 120%; opacity: 0; transform: scale(0.9) rotate(2deg); pointer-events: none; }
 
     .slide img {
       width: 100%;
       height: 100%;
       object-fit: contain;
       object-position: center;
-      border-radius: 14px;
+      border-radius: 12px;
       display: block;
-      background: rgba(10,10,15,0.2);
+      background: rgba(10,10,15,0.1);
       padding: 4px;
       pointer-events: none;
-      filter: drop-shadow(0 4px 20px rgba(0,0,0,0.3));
+      filter: drop-shadow(0 4px 20px rgba(0,0,0,0.2));
     }
 
-    /* ===== LOVE ANIMASI ===== */
+    /* ===== LOVE OVERLAY ===== */
     .love-overlay {
       position: absolute;
       top: 0;
@@ -250,16 +290,16 @@
       justify-content: center;
       opacity: 0;
       transition: opacity 0.6s ease 0.3s;
-      border-radius: 14px;
+      border-radius: 12px;
       overflow: hidden;
     }
     .slide.active .love-overlay { opacity: 1; }
 
     .love-overlay .floating-heart {
       position: absolute;
-      font-size: 2.5rem;
-      color: rgba(255, 107, 138, 0.6);
-      text-shadow: 0 0 40px rgba(232, 67, 110, 0.3), 0 0 80px rgba(232, 67, 110, 0.1);
+      font-size: 2.2rem;
+      color: rgba(212, 175, 55, 0.4);
+      text-shadow: 0 0 40px rgba(212, 175, 55, 0.15), 0 0 80px rgba(212, 175, 55, 0.05);
       animation: floatHeartCenter 3s ease-in-out infinite;
       opacity: 0;
       transform: scale(0.5) rotate(-10deg);
@@ -268,33 +308,33 @@
       animation: floatHeartCenter 3s ease-in-out infinite;
       opacity: 1;
     }
-    .love-overlay .floating-heart:nth-child(1) { animation-delay: 0s; font-size: 3rem; left: 30%; top: 20%; }
-    .love-overlay .floating-heart:nth-child(2) { animation-delay: 0.4s; font-size: 2.2rem; left: 65%; top: 25%; }
-    .love-overlay .floating-heart:nth-child(3) { animation-delay: 0.8s; font-size: 3.5rem; left: 45%; top: 15%; color: rgba(255, 182, 193, 0.5); }
-    .love-overlay .floating-heart:nth-child(4) { animation-delay: 1.2s; font-size: 2rem; left: 20%; top: 55%; }
-    .love-overlay .floating-heart:nth-child(5) { animation-delay: 0.6s; font-size: 2.8rem; left: 70%; top: 55%; color: rgba(255, 107, 138, 0.7); }
-    .love-overlay .floating-heart:nth-child(6) { animation-delay: 1.6s; font-size: 2rem; left: 50%; top: 70%; }
-    .love-overlay .floating-heart:nth-child(7) { animation-delay: 0.2s; font-size: 1.8rem; left: 15%; top: 35%; color: rgba(255, 182, 193, 0.4); }
-    .love-overlay .floating-heart:nth-child(8) { animation-delay: 1.0s; font-size: 2.2rem; left: 80%; top: 40%; }
+    .love-overlay .floating-heart:nth-child(1) { animation-delay: 0s; font-size: 2.8rem; left: 25%; top: 15%; color: rgba(212,175,55,0.5); }
+    .love-overlay .floating-heart:nth-child(2) { animation-delay: 0.4s; font-size: 2rem; left: 68%; top: 20%; color: rgba(255,182,193,0.3); }
+    .love-overlay .floating-heart:nth-child(3) { animation-delay: 0.8s; font-size: 3rem; left: 45%; top: 10%; color: rgba(212,175,55,0.4); }
+    .love-overlay .floating-heart:nth-child(4) { animation-delay: 1.2s; font-size: 1.8rem; left: 15%; top: 55%; color: rgba(255,182,193,0.2); }
+    .love-overlay .floating-heart:nth-child(5) { animation-delay: 0.6s; font-size: 2.5rem; left: 75%; top: 55%; color: rgba(212,175,55,0.3); }
+    .love-overlay .floating-heart:nth-child(6) { animation-delay: 1.6s; font-size: 1.8rem; left: 50%; top: 70%; color: rgba(255,182,193,0.2); }
+    .love-overlay .floating-heart:nth-child(7) { animation-delay: 0.2s; font-size: 1.6rem; left: 10%; top: 35%; color: rgba(212,175,55,0.2); }
+    .love-overlay .floating-heart:nth-child(8) { animation-delay: 1.0s; font-size: 2rem; left: 85%; top: 40%; color: rgba(255,182,193,0.2); }
 
     @keyframes floatHeartCenter {
       0% { transform: translateY(0) scale(0.6) rotate(-10deg); opacity: 0; }
-      20% { opacity: 1; transform: translateY(-20px) scale(1.2) rotate(5deg); }
-      40% { transform: translateY(10px) scale(1) rotate(-3deg); }
-      60% { transform: translateY(-10px) scale(1.1) rotate(3deg); }
-      80% { transform: translateY(5px) scale(0.95) rotate(-2deg); }
-      100% { transform: translateY(0) scale(0.8) rotate(5deg); opacity: 0.8; }
+      20% { opacity: 1; transform: translateY(-15px) scale(1.2) rotate(5deg); }
+      40% { transform: translateY(8px) scale(1) rotate(-3deg); }
+      60% { transform: translateY(-8px) scale(1.1) rotate(3deg); }
+      80% { transform: translateY(4px) scale(0.95) rotate(-2deg); }
+      100% { transform: translateY(0) scale(0.8) rotate(5deg); opacity: 0.6; }
     }
 
     .love-ring {
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 120px;
-      height: 120px;
+      width: 100px;
+      height: 100px;
       transform: translate(-50%, -50%) scale(0);
       border-radius: 50%;
-      border: 2px solid rgba(232, 67, 110, 0.15);
+      border: 1.5px solid rgba(212, 175, 55, 0.12);
       pointer-events: none;
       z-index: 4;
       opacity: 0;
@@ -306,61 +346,26 @@
       animation: ringPulse 3s ease-in-out infinite;
     }
     @keyframes ringPulse {
-      0%, 100% { transform: translate(-50%, -50%) scale(1.8); opacity: 0.3; border-width: 2px; }
-      50% { transform: translate(-50%, -50%) scale(2.5); opacity: 0.6; border-width: 4px; border-color: rgba(255, 107, 138, 0.3); }
+      0%, 100% { transform: translate(-50%, -50%) scale(1.8); opacity: 0.2; border-width: 1.5px; }
+      50% { transform: translate(-50%, -50%) scale(2.5); opacity: 0.5; border-width: 3px; border-color: rgba(212, 175, 55, 0.25); }
     }
 
-    .sparkle-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 3;
-      opacity: 0;
-      transition: opacity 1s ease 0.3s;
-    }
-    .slide.active .sparkle-container { opacity: 1; }
-
-    .sparkle {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      background: radial-gradient(circle, rgba(255,255,255,0.8), rgba(255,107,138,0.3));
-      border-radius: 50%;
-      animation: sparkleAnim 2s ease-in-out infinite;
-    }
-    .sparkle:nth-child(1) { top: 20%; left: 30%; animation-delay: 0s; }
-    .sparkle:nth-child(2) { top: 40%; left: 70%; animation-delay: 0.4s; width: 4px; height: 4px; }
-    .sparkle:nth-child(3) { top: 60%; left: 25%; animation-delay: 0.8s; width: 8px; height: 8px; }
-    .sparkle:nth-child(4) { top: 75%; left: 65%; animation-delay: 1.2s; width: 4px; height: 4px; }
-    .sparkle:nth-child(5) { top: 30%; left: 55%; animation-delay: 0.6s; width: 5px; height: 5px; }
-    .sparkle:nth-child(6) { top: 55%; left: 45%; animation-delay: 1.0s; width: 7px; height: 7px; }
-    .sparkle:nth-child(7) { top: 15%; left: 75%; animation-delay: 0.3s; width: 3px; height: 3px; }
-    .sparkle:nth-child(8) { top: 80%; left: 40%; animation-delay: 0.7s; width: 5px; height: 5px; }
-
-    @keyframes sparkleAnim {
-      0%, 100% { opacity: 0; transform: scale(0.5); }
-      50% { opacity: 1; transform: scale(1.5); }
-    }
-
-    /* ===== ★ CAPTION - FONT MUDAH DIBACA ★ ===== */
+    /* ===== CAPTION ===== */
     .slide-caption {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      padding: 1.2rem 1.5rem 0.8rem;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, transparent 100%);
+      padding: 1rem 1.2rem 0.6rem;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 100%);
       color: #ffffff;
       text-align: left;
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1rem;
       opacity: 0;
       transition: opacity 0.8s ease 0.3s;
       pointer-events: none;
-      border-radius: 14px 14px 0 0;
+      border-radius: 12px 12px 0 0;
       z-index: 10;
       font-family: 'Nunito', 'Quicksand', sans-serif;
       font-style: normal;
@@ -369,187 +374,177 @@
       line-height: 1.4;
     }
     .slide.active .slide-caption { opacity: 1; }
-    .slide-caption i { color: #ff6b8a; margin-right: 10px; }
+    .slide-caption i { color: #ff6b8a; margin-right: 8px; }
     .slide-caption small {
       display: block;
       font-weight: 400;
-      font-size: 0.8rem;
-      opacity: 0.8;
-      margin-top: 4px;
+      font-size: 0.7rem;
+      opacity: 0.7;
+      margin-top: 2px;
       font-family: 'Nunito', 'Quicksand', sans-serif;
       font-style: normal;
       letter-spacing: 0.2px;
     }
 
-    /* ===== ★ TOMBOL - FONT MUDAH DIBACA ★ ===== */
+    /* ===== TOMBOL ===== */
     .slide-actions {
       position: absolute;
-      bottom: 20px;
+      bottom: 16px;
       left: 0;
       right: 0;
       display: flex;
       justify-content: center;
-      gap: 16px;
+      gap: 12px;
       z-index: 999;
       flex-wrap: wrap;
       padding: 0 12px;
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(20px);
       transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s;
       pointer-events: none;
     }
     .slide.active .slide-actions { opacity: 1; transform: translateY(0); pointer-events: auto; }
 
     .love-btn-overlay {
-      background: rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.06);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,215,220,0.12);
-      color: #ffffff;
-      padding: 14px 28px;
+      border: 1px solid rgba(212,175,55,0.08);
+      color: rgba(255,255,255,0.8);
+      padding: 10px 20px;
       border-radius: 60px;
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 0.8rem;
       cursor: pointer;
       transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      box-shadow: 0 4px 30px rgba(0,0,0,0.2);
-      text-shadow: 0 1px 10px rgba(0,0,0,0.2);
+      gap: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      font-family: 'Nunito', 'Quicksand', sans-serif;
+      letter-spacing: 0.5px;
       position: relative;
       z-index: 1000;
       pointer-events: auto !important;
-      letter-spacing: 0.5px;
-      font-family: 'Nunito', 'Quicksand', sans-serif;
-      font-style: normal;
     }
-    .love-btn-overlay i { font-size: 1.1rem; color: #ff6b8a; }
+    .love-btn-overlay i { font-size: 0.9rem; color: rgba(212,175,55,0.3); }
     .love-btn-overlay:hover {
-      transform: scale(1.08) translateY(-4px);
-      background: rgba(255,255,255,0.15);
-      border-color: rgba(255,215,220,0.25);
-      box-shadow: 0 8px 40px rgba(232,67,110,0.2), 0 0 60px rgba(232,67,110,0.05);
+      transform: scale(1.05) translateY(-3px);
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(212,175,55,0.15);
+      color: #ffffff;
     }
-    .love-btn-overlay:active { transform: scale(0.94); }
+    .love-btn-overlay:active { transform: scale(0.95); }
     .love-btn-overlay.special {
-      background: linear-gradient(135deg, rgba(232,67,110,0.2), rgba(255,107,138,0.15));
-      border-color: rgba(232,67,110,0.2);
+      background: linear-gradient(135deg, rgba(212,175,55,0.06), rgba(232,67,110,0.04));
+      border-color: rgba(212,175,55,0.1);
     }
+    .love-btn-overlay.special i { color: rgba(212,175,55,0.3); }
     .love-btn-overlay.special:hover {
-      background: linear-gradient(135deg, rgba(232,67,110,0.3), rgba(255,107,138,0.25));
-      border-color: rgba(232,67,110,0.3);
-      box-shadow: 0 8px 40px rgba(232,67,110,0.3);
+      background: linear-gradient(135deg, rgba(212,175,55,0.1), rgba(232,67,110,0.08));
+      border-color: rgba(212,175,55,0.15);
     }
 
     .nav-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.02);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,215,220,0.06);
-      color: rgba(255,255,255,0.5);
-      width: 40px;
-      height: 40px;
+      border: 1px solid rgba(255,215,220,0.04);
+      color: rgba(255,255,255,0.2);
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 1rem;
+      font-size: 0.9rem;
       transition: all 0.4s ease;
       z-index: 20;
       opacity: 0;
       pointer-events: none;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
     }
-    .slideshow-container:hover .nav-btn, .slideshow-container:active .nav-btn { opacity: 0.6; pointer-events: auto; }
-    .nav-btn:hover { background: rgba(255,255,255,0.08); transform: translateY(-50%) scale(1.1); opacity: 1; color: rgba(255,255,255,0.8); }
-    .nav-btn.prev { left: 6px; }
-    .nav-btn.next { right: 6px; }
+    .slideshow-container:hover .nav-btn, .slideshow-container:active .nav-btn { opacity: 0.5; pointer-events: auto; }
+    .nav-btn:hover { background: rgba(255,255,255,0.05); transform: translateY(-50%) scale(1.1); opacity: 1; color: rgba(255,255,255,0.5); }
+    .nav-btn.prev { left: 4px; }
+    .nav-btn.next { right: 4px; }
 
     .dots-container {
       display: flex;
       justify-content: center;
-      gap: 10px;
-      margin: 2rem 0 0.5rem;
+      gap: 8px;
+      margin: 1rem 0 0.5rem;
     }
     .dot {
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
-      background: rgba(255,215,220,0.15);
-      border: 1px solid rgba(255,215,220,0.05);
+      background: rgba(255,215,220,0.08);
+      border: 1px solid rgba(255,215,220,0.03);
       cursor: pointer;
       transition: all 0.4s ease;
       padding: 0;
     }
-    .dot.active { background: #e8436e; transform: scale(1.5); box-shadow: 0 0 20px rgba(232,67,110,0.3); border-color: #e8436e; }
+    .dot.active { background: rgba(212,175,55,0.3); transform: scale(1.5); border-color: rgba(212,175,55,0.1); }
 
-    .ornament-bottom {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 14px;
-      margin-top: 1rem;
-      color: rgba(255,215,220,0.2);
-      font-size: 0.8rem;
+    /* ===== SAVE THE DATE ===== */
+    .save-date {
+      margin: 1.5rem 0 0.5rem;
+      padding: 1.2rem;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(212,175,55,0.06);
+    }
+    .save-date .label {
       font-family: 'Playfair Display', serif;
-      font-style: italic;
-      letter-spacing: 2px;
+      font-weight: 400;
+      font-size: 0.7rem;
+      letter-spacing: 6px;
+      color: rgba(212,175,55,0.3);
+      text-transform: uppercase;
     }
-    .ornament-bottom .line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(255,215,220,0.1), transparent); max-width: 50px; }
-    .ornament-bottom i { color: rgba(232,67,110,0.3); font-size: 0.7rem; }
-
-    .music-control {
-      margin-top: 1.5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.8rem;
-      background: rgba(255,255,255,0.03);
-      padding: 0.3rem 1.2rem;
-      border-radius: 60px;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,215,220,0.05);
+    .save-date .date {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 2.2rem;
+      letter-spacing: 4px;
+      color: rgba(255,215,220,0.8);
+      margin: 0.2rem 0;
     }
-    .music-btn { background: none; border: none; font-size: 1.1rem; cursor: pointer; color: rgba(255,215,220,0.4); transition: 0.3s; padding: 0.2rem 0.6rem; border-radius: 40px; }
-    .music-btn:hover { background: rgba(255,255,255,0.03); transform: scale(1.1); color: rgba(255,215,220,0.7); }
-    .music-label { font-size: 0.7rem; color: rgba(255,215,220,0.3); font-weight: 600; letter-spacing: 1px; font-family: 'Playfair Display', serif; font-style: italic; }
-
-    .romantic-output {
-      margin-top: 1.2rem;
-      min-height: 45px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .save-date .date .day {
+      display: block;
+      font-size: 1rem;
+      font-weight: 400;
+      color: rgba(212,175,55,0.4);
+      letter-spacing: 8px;
+      text-transform: uppercase;
     }
-    .love-message {
-      background: rgba(255,255,255,0.03);
-      backdrop-filter: blur(10px);
-      padding: 0.6rem 1.6rem;
-      border-radius: 60px;
+    .save-date .location {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 300;
+      font-size: 0.85rem;
+      color: rgba(255,215,220,0.3);
+      line-height: 1.8;
+      margin-top: 0.5rem;
+    }
+    .save-date .location i {
+      color: rgba(212,175,55,0.2);
+      margin-right: 6px;
+      width: 20px;
+    }
+    .save-date .location strong {
+      color: rgba(255,215,220,0.5);
       font-weight: 600;
-      color: rgba(255,215,220,0.7);
-      font-size: 0.9rem;
-      border: 1px solid rgba(255,215,220,0.04);
-      animation: fadePop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: 'Nunito', 'Quicksand', sans-serif;
-      font-style: normal;
-      letter-spacing: 0.3px;
     }
-    .love-message i { color: #e8436e; }
-    @keyframes fadePop { 0% { opacity: 0; transform: scale(0.8); } 100% { opacity: 1; transform: scale(1); } }
 
+    /* ===== BURST LOVE ===== */
     .rain-burst {
       position: fixed;
       pointer-events: none;
-      font-size: 2.8rem;
+      font-size: 2.5rem;
       z-index: 9999;
       animation: burstLove 1.8s ease-out forwards;
     }
@@ -561,7 +556,7 @@
     .floating-emoji {
       position: fixed;
       pointer-events: none;
-      font-size: 2.2rem;
+      font-size: 2rem;
       z-index: 9999;
       animation: floatEmoji 2.5s ease-out forwards;
     }
@@ -570,27 +565,73 @@
       100% { opacity: 0; transform: translateY(-300px) scale(2) rotate(40deg); }
     }
 
+    /* ===== MUSIC ===== */
+    .music-control {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.8rem;
+      background: rgba(255,255,255,0.02);
+      padding: 0.3rem 1.2rem;
+      border-radius: 60px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(212,175,55,0.04);
+    }
+    .music-btn { background: none; border: none; font-size: 1rem; cursor: pointer; color: rgba(255,215,220,0.2); transition: 0.3s; padding: 0.2rem 0.6rem; border-radius: 40px; }
+    .music-btn:hover { background: rgba(255,255,255,0.02); transform: scale(1.1); color: rgba(255,215,220,0.4); }
+    .music-label { font-size: 0.65rem; color: rgba(255,215,220,0.15); font-weight: 600; letter-spacing: 2px; font-family: 'Playfair Display', serif; font-style: italic; }
+
+    /* ===== OUTPUT ===== */
+    .output-area {
+      margin-top: 1rem;
+      min-height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .love-message {
+      background: rgba(255,255,255,0.02);
+      backdrop-filter: blur(10px);
+      padding: 0.5rem 1.4rem;
+      border-radius: 60px;
+      font-weight: 600;
+      color: rgba(255,215,220,0.3);
+      font-size: 0.8rem;
+      border: 1px solid rgba(212,175,55,0.03);
+      animation: fadePop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Nunito', 'Quicksand', sans-serif;
+      letter-spacing: 0.3px;
+    }
+    .love-message i { color: rgba(212,175,55,0.2); }
+    @keyframes fadePop { 0% { opacity: 0; transform: scale(0.8); } 100% { opacity: 1; transform: scale(1); } }
+
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 480px) {
-      .card { padding: 1.5rem 1rem; border-radius: 32px; }
-      .title { font-size: 1.8rem; }
-      .slide-caption { font-size: 0.85rem; padding: 0.8rem 1rem 0.5rem; }
-      .slide-caption small { font-size: 0.65rem; }
-      .love-btn-overlay { font-size: 0.75rem; padding: 10px 16px; gap: 6px; }
-      .love-btn-overlay i { font-size: 0.8rem; }
-      .slide-actions { bottom: 12px; gap: 8px; }
-      .nav-btn { width: 32px; height: 32px; font-size: 0.8rem; }
-      .ornament-top, .ornament-bottom { font-size: 0.7rem; }
-      .ornament-top .line, .ornament-bottom .line { max-width: 30px; }
-      .love-overlay .floating-heart { font-size: 1.8rem !important; }
-      .love-ring { width: 80px; height: 80px; }
+      .card { padding: 1.8rem 1rem; border-radius: 32px; }
+      .title { font-size: 2rem; }
+      .names { font-size: 2.2rem; }
+      .names .ampersand { font-size: 1.6rem; }
+      .save-date .date { font-size: 1.6rem; }
+      .love-btn-overlay { font-size: 0.7rem; padding: 8px 14px; gap: 6px; }
+      .love-btn-overlay i { font-size: 0.7rem; }
+      .slide-caption { font-size: 0.75rem; padding: 0.6rem 0.8rem 0.4rem; }
+      .love-overlay .floating-heart { font-size: 1.6rem !important; }
+      .love-ring { width: 70px; height: 70px; }
       .slide.active .love-ring { transform: translate(-50%, -50%) scale(1.5); }
+      .invite-text { font-size: 0.6rem; letter-spacing: 4px; }
+      .date-main { font-size: 0.9rem; }
     }
     @media (max-width: 380px) {
-      .slide-caption { font-size: 0.75rem; }
-      .love-btn-overlay { font-size: 0.65rem; padding: 8px 12px; gap: 4px; }
-      .love-btn-overlay i { font-size: 0.7rem; }
-      .slide-actions { bottom: 8px; gap: 6px; }
-      .love-overlay .floating-heart { font-size: 1.4rem !important; }
+      .title { font-size: 1.6rem; }
+      .names { font-size: 1.8rem; }
+      .save-date .date { font-size: 1.3rem; }
+      .love-btn-overlay { font-size: 0.6rem; padding: 6px 10px; gap: 4px; }
+      .love-btn-overlay i { font-size: 0.6rem; }
+      .love-overlay .floating-heart { font-size: 1.2rem !important; }
     }
   </style>
 </head>
@@ -603,20 +644,36 @@
     <div class="glow-orb orb1"></div>
     <div class="glow-orb orb2"></div>
 
+    <!-- Ornament Atas -->
     <div class="ornament-top">
       <span class="line"></span>
       <i class="fas fa-heart"></i>
-      <i class="fas fa-star" style="font-size:0.6rem;"></i>
+      <i class="fas fa-star" style="font-size:0.5rem;"></i>
       <i class="fas fa-heart"></i>
       <span class="line"></span>
     </div>
 
-    <h1 class="title">Mia ❤️ Frengky</h1>
-    <div class="subtitle"><i class="fas fa-feather-alt"></i> LDR • Cinta Sejati <i class="fas fa-feather-alt"></i></div>
+    <div class="invite-text">Love Story</div>
+    <h1 class="title">💖 Mia & Frengky 💖</h1>
 
+    <div class="names">
+      Mia <span class="ampersand">✦</span> Frengky
+    </div>
+
+    <div class="date-main">
+      <strong>LDR • Cinta Sejati</strong>
+    </div>
+
+    <div class="divider">
+      <span class="line"></span>
+      <i class="fas fa-heart"></i>
+      <span class="line"></span>
+    </div>
+
+    <!-- ===== SLIDESHOW ===== -->
     <div class="slideshow-container" id="slideshowContainer">
 
-      <div class="paper-frame">
+      <div class="photo-frame">
 
         <!-- Slide 1 -->
         <div class="slide slide-left active" data-index="0">
@@ -632,23 +689,13 @@
             <div class="floating-heart">❤️</div>
           </div>
           <div class="love-ring"></div>
-          <div class="sparkle-container">
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-          </div>
           <div class="slide-caption">
             <i class="fas fa-heart"></i> Pertama kali bertemu
             <small>Momen yang tak terlupakan</small>
           </div>
           <div class="slide-actions">
-            <button class="love-btn-overlay" data-msg="💕 Kenangan pertama kali kita bertemu, Aku takkan pernah melupakan semuanya."><i class="fas fa-heart"></i> Kenangan</button>
-            <button class="love-btn-overlay special" data-msg="🌹 Senyummu, Candamu adalah semangat ku saat ini."><i class="fas fa-rose"></i> Cinta</button>
+            <button class="love-btn-overlay" data-msg="💕 Kenangan manis pertama kali kita bertemu, Mia. Aku takkan pernah melupakannya."><i class="fas fa-heart"></i> Kenangan</button>
+            <button class="love-btn-overlay special" data-msg="🌹 Senyummu di hari itu membuat hatiku bergetar, Frengky. Aku langsung jatuh cinta."><i class="fas fa-rose"></i> Cinta</button>
           </div>
         </div>
 
@@ -666,23 +713,13 @@
             <div class="floating-heart">❤️</div>
           </div>
           <div class="love-ring"></div>
-          <div class="sparkle-container">
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-          </div>
           <div class="slide-caption">
             <i class="fas fa-heart"></i> Tawa dan bahagia
             <small>Setiap detik berharga</small>
           </div>
           <div class="slide-actions">
-            <button class="love-btn-overlay" data-msg="💕 Tawa bahagia kita bersama adalah obat rinduku setiap hari."><i class="fas fa-heart"></i> Bahagia</button>
-            <button class="love-btn-overlay special" data-msg="🌟 Kamu adalah bintang yang menerangi setiap hariku, Tanpamu semuanya gelap."><i class="fas fa-star"></i> Bintang</button>
+            <button class="love-btn-overlay" data-msg="💕 Tawa bahagia kita bersama adalah obat rinduku setiap hari, Mia."><i class="fas fa-heart"></i> Bahagia</button>
+            <button class="love-btn-overlay special" data-msg="🌟 Kamu adalah bintang yang menerangi setiap hariku, Frengky. Tanpamu gelap."><i class="fas fa-star"></i> Bintang</button>
           </div>
         </div>
 
@@ -700,23 +737,13 @@
             <div class="floating-heart">❤️</div>
           </div>
           <div class="love-ring"></div>
-          <div class="sparkle-container">
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-          </div>
           <div class="slide-caption">
             <i class="fas fa-heart"></i> Cinta yang tumbuh
             <small>Jarak tak jadi penghalang</small>
           </div>
           <div class="slide-actions">
-            <button class="love-btn-overlay" data-msg="💕 Setiap hari aku merindukanmu lebih dalam, Jarak tak mengurangi cintaku."><i class="fas fa-heart"></i> Rindu</button>
-            <button class="love-btn-overlay special" data-msg="🌈 Cinta kita sekuat pelangi, melewati badai LDR dengan indah."><i class="fas fa-rainbow"></i> Pelangi</button>
+            <button class="love-btn-overlay" data-msg="💕 Setiap hari aku merindukanmu lebih dalam, Mia. Jarak tak mengurangi cintaku."><i class="fas fa-heart"></i> Rindu</button>
+            <button class="love-btn-overlay special" data-msg="🌈 Cinta kita sekuat pelangi, melewati badai LDR dengan indah, Frengky."><i class="fas fa-rainbow"></i> Pelangi</button>
           </div>
         </div>
 
@@ -734,23 +761,13 @@
             <div class="floating-heart">❤️</div>
           </div>
           <div class="love-ring"></div>
-          <div class="sparkle-container">
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-          </div>
           <div class="slide-caption">
             <i class="fas fa-heart"></i> Sampai jumpa di pelukan
             <small>LDR takkan memisahkan kita</small>
           </div>
           <div class="slide-actions">
-            <button class="love-btn-overlay" data-msg="💕 Aku menunggumu dengan sepenuh hati,  Sampai kita bertemu lagi."><i class="fas fa-heart"></i> Tunggu</button>
-            <button class="love-btn-overlay special" data-msg="🙏 Semoga cinta kita langgeng sampai kita bisa bertemu kembali, Frengky. Dalam doa selalu ada kamu."><i class="fas fa-hands-praying"></i> Doa</button>
+            <button class="love-btn-overlay" data-msg="💕 Aku menunggumu dengan sepenuh hati, Mia. Sampai kita bertemu lagi."><i class="fas fa-heart"></i> Tunggu</button>
+            <button class="love-btn-overlay special" data-msg="🙏 Semoga cinta kita langgeng sampai i ahti, Frengky. Dalam doa selalu ada kamu."><i class="fas fa-hands-praying"></i> Doa</button>
           </div>
         </div>
 
@@ -766,14 +783,31 @@
       <button class="dot" data-index="3"></button>
     </div>
 
-    <div class="ornament-bottom">
-      <span class="line"></span>
-      <i class="fas fa-heart"></i>
-      <i class="fas fa-infinity" style="font-size:0.7rem;"></i>
-      <i class="fas fa-heart"></i>
-      <span class="line"></span>
+    <!-- ===== SAVE THE DATE STYLE ===== -->
+    <div class="save-date">
+      <div class="label">Love Story</div>
+      <div class="date">
+        <span class="day">💕 Forever</span>
+        LDR • Cinta Sejati
+      </div>
+      <div class="location">
+        <div><i class="fas fa-heart"></i> <strong>6.000 km</strong> • 2 zona waktu</div>
+        <div><i class="fas fa-heart"></i> Satu cinta yang tak tergantikan</div>
+        <div style="margin-top:6px; padding-top:6px; border-top:1px solid rgba(255,215,220,0.03);">
+          <i class="fas fa-infinity"></i> Dalam doa selalu ada <strong>Mia & Frengky</strong>
+        </div>
+        <div><i class="fas fa-heart"></i> Sampai seterusnya, i ahti 💖</div>
+      </div>
     </div>
 
+    <!-- ===== TOMBOL ===== -->
+    <div class="btn-group" style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:1rem;">
+      <button class="btn-love" data-msg="💕 Terima kasih atas doa dan cintanya untuk Mia & Frengky!" style="background:rgba(255,255,255,0.04); backdrop-filter:blur(20px); border:1px solid rgba(212,175,55,0.08); color:rgba(255,215,220,0.6); padding:10px 22px; border-radius:60px; font-weight:600; font-size:0.8rem; cursor:pointer; transition:all 0.4s; display:inline-flex; align-items:center; gap:8px; font-family:'Nunito',sans-serif;"><i class="fas fa-heart" style="color:rgba(212,175,55,0.3);"></i> Doa</button>
+      <button class="btn-love" data-msg="🌹 Kehadiranmu dalam hidup kami adalah kebahagiaan terbesar!" style="background:rgba(255,255,255,0.04); backdrop-filter:blur(20px); border:1px solid rgba(212,175,55,0.08); color:rgba(255,215,220,0.6); padding:10px 22px; border-radius:60px; font-weight:600; font-size:0.8rem; cursor:pointer; transition:all 0.4s; display:inline-flex; align-items:center; gap:8px; font-family:'Nunito',sans-serif;"><i class="fas fa-rose" style="color:rgba(212,175,55,0.3);"></i> Cinta</button>
+      <button class="btn-love special" data-msg="🙏 Semoga cinta Mia & Frengky langgeng sampai i ahti. Amin!" style="background:linear-gradient(135deg, rgba(212,175,55,0.06), rgba(232,67,110,0.04)); backdrop-filter:blur(20px); border:1px solid rgba(212,175,55,0.1); color:rgba(255,215,220,0.6); padding:10px 22px; border-radius:60px; font-weight:600; font-size:0.8rem; cursor:pointer; transition:all 0.4s; display:inline-flex; align-items:center; gap:8px; font-family:'Nunito',sans-serif;"><i class="fas fa-hands-praying" style="color:rgba(212,175,55,0.3);"></i> Amin</button>
+    </div>
+
+    <!-- ===== MUSIC ===== -->
     <div class="music-control">
       <button class="music-btn" id="playPauseBtn">
         <i class="fas fa-play" id="playIcon"></i>
@@ -784,9 +818,10 @@
       </button>
     </div>
 
-    <div class="romantic-output" id="romanticOutput">
+    <!-- ===== OUTPUT ===== -->
+    <div class="output-area" id="outputArea">
       <div class="love-message">
-        <i class="fas fa-heart" style="color:#e8436e;"></i>  Klik tombol cinta di dalam foto  <i class="fas fa-heart" style="color:#e8436e;"></i>
+        <i class="fas fa-heart"></i> Klik tombol untuk kirim doa & cinta
       </div>
     </div>
 
@@ -801,13 +836,13 @@
 
       // ========== BINTANG ==========
       const starsContainer = document.getElementById('starsContainer');
-      for (let i = 0; i < 120; i++) {
+      for (let i = 0; i < 100; i++) {
         const star = document.createElement('div');
         star.className = 'star';
         star.style.left = Math.random() * 100 + '%';
         star.style.top = Math.random() * 100 + '%';
         star.style.setProperty('--duration', (2 + Math.random() * 4) + 's');
-        star.style.width = (1 + Math.random() * 3) + 'px';
+        star.style.width = (1 + Math.random() * 2.5) + 'px';
         star.style.height = star.style.width;
         star.style.animationDelay = (Math.random() * 5) + 's';
         starsContainer.appendChild(star);
@@ -815,16 +850,16 @@
 
       // ========== HUJAN LOVE ==========
       const rainContainer = document.getElementById('rainContainer');
-      const loveSymbols = ['❤️', '💕', '💖', '💗', '💘', '💝', '🌹', '🌸', '✨', '💞'];
-      for (let i = 0; i < 40; i++) {
+      const items = ['❤️', '💕', '💖', '✨', '🌸', '💗', '🌹', '💞'];
+      for (let i = 0; i < 35; i++) {
         const el = document.createElement('div');
-        el.className = 'rain-heart';
-        el.textContent = loveSymbols[Math.floor(Math.random() * loveSymbols.length)];
+        el.className = 'rain-item';
+        el.textContent = items[Math.floor(Math.random() * items.length)];
         el.style.left = Math.random() * 100 + '%';
-        el.style.fontSize = (1 + Math.random() * 2.5) + 'rem';
-        el.style.animationDuration = (8 + Math.random() * 15) + 's';
+        el.style.fontSize = (0.8 + Math.random() * 2) + 'rem';
+        el.style.animationDuration = (8 + Math.random() * 14) + 's';
         el.style.animationDelay = (Math.random() * 12) + 's';
-        el.style.opacity = 0.08 + Math.random() * 0.15;
+        el.style.opacity = 0.06 + Math.random() * 0.12;
         rainContainer.appendChild(el);
       }
 
@@ -843,19 +878,14 @@
         if (index >= slides.length) index = 0;
         
         isTransitioning = true;
-        
         const direction = index > currentIndex ? 'right' : 'left';
         
-        slides.forEach(s => {
-          s.classList.remove('active', 'exit');
-        });
+        slides.forEach(s => s.classList.remove('active', 'exit'));
         
         const currentSlide = slides[currentIndex];
-        if (currentSlide.classList.contains('slide-left')) {
-          currentSlide.classList.add('exit');
-        } else if (currentSlide.classList.contains('slide-right')) {
-          currentSlide.classList.add('exit');
-        } else {
+        if (currentSlide.classList.contains('slide-left')) currentSlide.classList.add('exit');
+        else if (currentSlide.classList.contains('slide-right')) currentSlide.classList.add('exit');
+        else {
           currentSlide.style.left = direction === 'right' ? '-120%' : '120%';
           currentSlide.style.opacity = '0';
         }
@@ -864,17 +894,17 @@
         if (direction === 'right') {
           nextSlide.style.left = '120%';
           nextSlide.style.opacity = '0';
-          nextSlide.style.transform = 'scale(0.9) rotate(3deg)';
+          nextSlide.style.transform = 'scale(0.9) rotate(2deg)';
         } else {
           nextSlide.style.left = '-120%';
           nextSlide.style.opacity = '0';
-          nextSlide.style.transform = 'scale(0.9) rotate(-3deg)';
+          nextSlide.style.transform = 'scale(0.9) rotate(-2deg)';
         }
         
         void nextSlide.offsetWidth;
         
         nextSlide.classList.add('active');
-        nextSlide.style.left = '10px';
+        nextSlide.style.left = '8px';
         nextSlide.style.opacity = '1';
         nextSlide.style.transform = 'scale(1) rotate(0deg)';
         
@@ -883,9 +913,7 @@
         const overlay = nextSlide.querySelector('.love-overlay');
         if (overlay) {
           overlay.style.opacity = '0';
-          requestAnimationFrame(() => {
-            overlay.style.opacity = '1';
-          });
+          requestAnimationFrame(() => { overlay.style.opacity = '1'; });
         }
         
         currentIndex = index;
@@ -918,7 +946,7 @@
         });
       });
 
-      function startInterval() { slideInterval = setInterval(nextSlideFn, 5000); }
+      function startInterval() { slideInterval = setInterval(nextSlideFn, 4500); }
       function resetInterval() { clearInterval(slideInterval); startInterval(); }
 
       const container = document.getElementById('slideshowContainer');
@@ -940,14 +968,14 @@
         audio.play().then(() => {
           isPlaying = true;
           playIcon.className = 'fas fa-pause';
-          if (showMsg) showLoveBurst('🎵 Sedang memutar lagu Souqy 💖');
+          if (showMsg) showLoveBurst('🎵 Memutar lagu Souqy 💖');
         }).catch(() => {
           playIcon.className = 'fas fa-play';
           isPlaying = false;
         });
       }
 
-      setTimeout(() => playAudio(false), 500);
+      setTimeout(() => playAudio(false), 600);
       document.addEventListener('click', function first() {
         if (!isPlaying) playAudio(true);
         document.removeEventListener('click', first);
@@ -970,72 +998,79 @@
         if (isMuted) { audio.muted = false; volumeIcon.className = 'fas fa-volume-up'; isMuted = false; }
         else { audio.muted = true; volumeIcon.className = 'fas fa-volume-mute'; isMuted = true; }
       });
-      audio.volume = 0.6;
+      audio.volume = 0.5;
 
-      // ========== FUNGSI HUJAN LOVE ==========
+      // ========== LOVE BURST ==========
       function showLoveBurst(msg) {
-        const output = document.getElementById('romanticOutput');
+        const output = document.getElementById('outputArea');
         output.innerHTML = '';
         const div = document.createElement('div');
         div.className = 'love-message';
-        div.innerHTML = `<i class="fas fa-heart" style="color:#e8436e;"></i> ${msg} <i class="fas fa-heart" style="color:#e8436e;"></i>`;
+        div.innerHTML = `<i class="fas fa-heart"></i> ${msg}`;
         output.appendChild(div);
 
-        const emojis = ['❤️', '💕', '💖', '💗', '💘', '💝', '🌹', '🌸', '✨', '💞', '💓', '🥰', '😍', '💋'];
-        const colors = ['#e8436e', '#ff6b8a', '#ff8da1', '#ffb6c1', '#d65f7a', '#ff4d7a', '#ff2d55'];
+        const emojis = ['❤️', '💕', '💖', '💗', '💘', '💝', '🌹', '🌸', '✨', '💞', '💓', '🥰', '😍'];
+        const colors = ['#d4af37', '#ff6b8a', '#ff8da1', '#ffb6c1', '#d65f7a', '#f5d98e', '#ff4d7a'];
 
-        for (let i = 0; i < 60; i++) {
+        for (let i = 0; i < 40; i++) {
           setTimeout(() => {
             const el = document.createElement('div');
             el.className = 'rain-burst';
             el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
             el.style.left = (5 + Math.random() * 90) + '%';
             el.style.top = (5 + Math.random() * 90) + '%';
-            const tx = (Math.random() * 600 - 300);
-            const ty = (Math.random() * -600 - 100);
+            const tx = (Math.random() * 500 - 250);
+            const ty = (Math.random() * -500 - 80);
             el.style.setProperty('--tx', tx + 'px');
             el.style.setProperty('--ty', ty + 'px');
-            el.style.fontSize = (1.5 + Math.random() * 4) + 'rem';
+            el.style.fontSize = (1.5 + Math.random() * 3.5) + 'rem';
             el.style.color = colors[Math.floor(Math.random() * colors.length)];
-            el.style.textShadow = '0 0 30px rgba(232,67,110,0.2)';
+            el.style.textShadow = '0 0 30px rgba(212,175,55,0.15)';
             document.body.appendChild(el);
-            setTimeout(() => el.remove(), 2000);
+            setTimeout(() => el.remove(), 1800);
           }, i * 25);
         }
 
-        const floatEmojis = ['💖', '✨', '💕', '🌟', '🥰', '💞', '🌹', '💗', '💘', '😍'];
-        for (let i = 0; i < 25; i++) {
+        const floatEmojis = ['💖', '✨', '💕', '🌟', '🥰', '💞', '🌹', '💗'];
+        for (let i = 0; i < 15; i++) {
           setTimeout(() => {
             const em = document.createElement('div');
             em.className = 'floating-emoji';
             em.textContent = floatEmojis[Math.floor(Math.random() * floatEmojis.length)];
             em.style.left = (5 + Math.random() * 90) + '%';
             em.style.top = (10 + Math.random() * 80) + '%';
-            em.style.fontSize = (1.5 + Math.random() * 3) + 'rem';
+            em.style.fontSize = (1.5 + Math.random() * 2.5) + 'rem';
             em.style.color = colors[Math.floor(Math.random() * colors.length)];
             document.body.appendChild(em);
-            setTimeout(() => em.remove(), 2800);
+            setTimeout(() => em.remove(), 2500);
           }, i * 50);
         }
 
         if (!isPlaying) playAudio(false);
       }
 
-      // ========== TOMBOL ==========
-      document.addEventListener('click', function(e) {
-        const btn = e.target.closest('.love-btn-overlay');
-        if (btn) {
+      // ========== TOMBOL DI DALAM FOTO ==========
+      document.querySelectorAll('.love-btn-overlay').forEach(btn => {
+        btn.addEventListener('click', function(e) {
           e.stopPropagation();
-          e.preventDefault();
-          const msg = btn.getAttribute('data-msg') || '💖 Cinta abadi untuk Mia & Frengky 💖';
+          const msg = this.getAttribute('data-msg') || '💖 Cinta abadi untuk Mia & Frengky 💖';
           showLoveBurst(msg);
-        }
+        });
+      });
+
+      // ========== TOMBOL BAWAH ==========
+      document.querySelectorAll('.btn-love').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const msg = this.getAttribute('data-msg') || '💖 Cinta dan doa untuk Mia & Frengky 💖';
+          showLoveBurst(msg);
+        });
       });
 
       // ========== PESAN DEFAULT ==========
       setTimeout(() => {
-        showLoveBurst('💕 Klik tombol cinta di dalam foto untuk pesan romantis 💕');
-      }, 800);
+        showLoveBurst('💕 Klik tombol untuk kirim doa & cinta 💕');
+      }, 1000);
 
     })();
   </script>
