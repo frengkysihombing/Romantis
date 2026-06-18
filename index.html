@@ -23,7 +23,6 @@
       background: #0a0a0f;
     }
 
-    /* ===== BACKGROUND GRADIENT MEWAH ===== */
     body::before {
       content: '';
       position: fixed;
@@ -39,7 +38,6 @@
       z-index: 0;
     }
 
-    /* ===== BINTANG GLITTER ===== */
     .stars {
       position: fixed;
       top: 0;
@@ -63,7 +61,6 @@
       100% { opacity: 1; transform: scale(1.2); }
     }
 
-    /* ===== HUJAN LOVE ===== */
     .rain-container {
       position: fixed;
       top: 0;
@@ -89,7 +86,6 @@
       100% { transform: translateY(110vh) rotate(720deg) scale(1.3); opacity: 0; }
     }
 
-    /* ===== CARD UTAMA ===== */
     .card {
       position: relative;
       z-index: 10;
@@ -101,14 +97,10 @@
       border-radius: 56px;
       padding: 2.5rem 2rem 2.5rem;
       border: 1px solid rgba(255, 215, 220, 0.08);
-      box-shadow: 
-        0 40px 100px rgba(0,0,0,0.5),
-        0 0 80px rgba(232,67,110,0.05),
-        inset 0 1px 0 rgba(255,255,255,0.05);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.5), 0 0 80px rgba(232,67,110,0.05), inset 0 1px 0 rgba(255,255,255,0.05);
       text-align: center;
     }
 
-    /* ===== GLOW ORB ===== */
     .glow-orb {
       position: absolute;
       border-radius: 50%;
@@ -116,22 +108,9 @@
       pointer-events: none;
       z-index: -1;
     }
-    .glow-orb.orb1 {
-      width: 300px;
-      height: 300px;
-      top: -100px;
-      right: -100px;
-      background: rgba(232,67,110,0.15);
-    }
-    .glow-orb.orb2 {
-      width: 250px;
-      height: 250px;
-      bottom: -80px;
-      left: -80px;
-      background: rgba(255,107,138,0.1);
-    }
+    .glow-orb.orb1 { width: 300px; height: 300px; top: -100px; right: -100px; background: rgba(232,67,110,0.15); }
+    .glow-orb.orb2 { width: 250px; height: 250px; bottom: -80px; left: -80px; background: rgba(255,107,138,0.1); }
 
-    /* ===== ORNAMEN ATAS ===== */
     .ornament-top {
       display: flex;
       justify-content: center;
@@ -144,18 +123,9 @@
       font-style: italic;
       letter-spacing: 3px;
     }
-    .ornament-top .line {
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, transparent, rgba(255,215,220,0.2), transparent);
-      max-width: 60px;
-    }
-    .ornament-top i {
-      color: rgba(232,67,110,0.5);
-      font-size: 0.8rem;
-    }
+    .ornament-top .line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(255,215,220,0.2), transparent); max-width: 60px; }
+    .ornament-top i { color: rgba(232,67,110,0.5); font-size: 0.8rem; }
 
-    /* ===== TITLE ===== */
     .title {
       font-family: 'Playfair Display', serif;
       font-weight: 700;
@@ -168,12 +138,8 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       animation: gradientShift 4s ease-in-out infinite;
-      text-shadow: none;
     }
-    @keyframes gradientShift {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
+    @keyframes gradientShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
 
     .subtitle {
       font-family: 'Playfair Display', serif;
@@ -190,10 +156,7 @@
       border: 1px solid rgba(255,215,220,0.06);
       letter-spacing: 2px;
     }
-    .subtitle i {
-      color: rgba(232,67,110,0.5);
-      margin: 0 6px;
-    }
+    .subtitle i { color: rgba(232,67,110,0.5); margin: 0 6px; }
 
     /* ===== SLIDESHOW ===== */
     .slideshow-container {
@@ -214,9 +177,7 @@
       background: rgba(255,248,250,0.03);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      box-shadow: 
-        0 4px 30px rgba(0,0,0,0.3),
-        inset 0 0 60px rgba(232,67,110,0.03);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.3), inset 0 0 60px rgba(232,67,110,0.03);
       padding: 10px;
       border: 1px solid rgba(255,215,220,0.06);
       overflow: hidden;
@@ -233,11 +194,9 @@
       animation: rotateGlow 20s linear infinite;
       pointer-events: none;
     }
-    @keyframes rotateGlow {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
+    @keyframes rotateGlow { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
+    /* ===== SLIDE ===== */
     .slide {
       position: absolute;
       top: 10px;
@@ -274,6 +233,127 @@
       filter: drop-shadow(0 4px 20px rgba(0,0,0,0.3));
     }
 
+    /* ===== ★ ANIMASI LOVE DI TENGAH FOTO ★ ===== */
+    .love-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .slide.active .love-overlay {
+      opacity: 1;
+    }
+
+    /* Floating hearts di tengah foto */
+    .love-overlay .floating-heart {
+      position: absolute;
+      font-size: 2.5rem;
+      color: rgba(255, 107, 138, 0.6);
+      text-shadow: 0 0 40px rgba(232, 67, 110, 0.3), 0 0 80px rgba(232, 67, 110, 0.1);
+      animation: floatHeartCenter 3s ease-in-out infinite;
+      opacity: 0;
+      transform: scale(0.5) rotate(-10deg);
+    }
+
+    .slide.active .floating-heart {
+      animation: floatHeartCenter 3s ease-in-out infinite;
+      opacity: 1;
+    }
+
+    /* Masing-masing heart punya delay berbeda */
+    .love-overlay .floating-heart:nth-child(1) { animation-delay: 0s; font-size: 3rem; left: 30%; top: 20%; }
+    .love-overlay .floating-heart:nth-child(2) { animation-delay: 0.4s; font-size: 2.2rem; left: 65%; top: 25%; }
+    .love-overlay .floating-heart:nth-child(3) { animation-delay: 0.8s; font-size: 3.5rem; left: 45%; top: 15%; color: rgba(255, 182, 193, 0.5); }
+    .love-overlay .floating-heart:nth-child(4) { animation-delay: 1.2s; font-size: 2rem; left: 20%; top: 55%; }
+    .love-overlay .floating-heart:nth-child(5) { animation-delay: 0.6s; font-size: 2.8rem; left: 70%; top: 55%; color: rgba(255, 107, 138, 0.7); }
+    .love-overlay .floating-heart:nth-child(6) { animation-delay: 1.6s; font-size: 2rem; left: 50%; top: 70%; }
+    .love-overlay .floating-heart:nth-child(7) { animation-delay: 0.2s; font-size: 1.8rem; left: 15%; top: 35%; color: rgba(255, 182, 193, 0.4); }
+    .love-overlay .floating-heart:nth-child(8) { animation-delay: 1.0s; font-size: 2.2rem; left: 80%; top: 40%; }
+
+    @keyframes floatHeartCenter {
+      0% { transform: translateY(0) scale(0.6) rotate(-10deg); opacity: 0; }
+      20% { opacity: 1; transform: translateY(-20px) scale(1.2) rotate(5deg); }
+      40% { transform: translateY(10px) scale(1) rotate(-3deg); }
+      60% { transform: translateY(-10px) scale(1.1) rotate(3deg); }
+      80% { transform: translateY(5px) scale(0.95) rotate(-2deg); }
+      100% { transform: translateY(0) scale(0.8) rotate(5deg); opacity: 0.8; }
+    }
+
+    /* ★ Efek Glow Ring di tengah foto ★ */
+    .love-ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 120px;
+      height: 120px;
+      transform: translate(-50%, -50%) scale(0);
+      border-radius: 50%;
+      border: 2px solid rgba(232, 67, 110, 0.15);
+      pointer-events: none;
+      z-index: 4;
+      opacity: 0;
+      transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .slide.active .love-ring {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.8);
+      animation: ringPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes ringPulse {
+      0%, 100% { transform: translate(-50%, -50%) scale(1.8); opacity: 0.3; border-width: 2px; }
+      50% { transform: translate(-50%, -50%) scale(2.5); opacity: 0.6; border-width: 4px; border-color: rgba(255, 107, 138, 0.3); }
+    }
+
+    /* ★ Efek Sparkle di tengah foto ★ */
+    .sparkle-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 3;
+      opacity: 0;
+      transition: opacity 1s ease 0.3s;
+    }
+    .slide.active .sparkle-container {
+      opacity: 1;
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: radial-gradient(circle, rgba(255,255,255,0.8), rgba(255,107,138,0.3));
+      border-radius: 50%;
+      animation: sparkleAnim 2s ease-in-out infinite;
+    }
+    .sparkle:nth-child(1) { top: 20%; left: 30%; animation-delay: 0s; }
+    .sparkle:nth-child(2) { top: 40%; left: 70%; animation-delay: 0.4s; width: 4px; height: 4px; }
+    .sparkle:nth-child(3) { top: 60%; left: 25%; animation-delay: 0.8s; width: 8px; height: 8px; }
+    .sparkle:nth-child(4) { top: 75%; left: 65%; animation-delay: 1.2s; width: 4px; height: 4px; }
+    .sparkle:nth-child(5) { top: 30%; left: 55%; animation-delay: 0.6s; width: 5px; height: 5px; }
+    .sparkle:nth-child(6) { top: 55%; left: 45%; animation-delay: 1.0s; width: 7px; height: 7px; }
+    .sparkle:nth-child(7) { top: 15%; left: 75%; animation-delay: 0.3s; width: 3px; height: 3px; }
+    .sparkle:nth-child(8) { top: 80%; left: 40%; animation-delay: 0.7s; width: 5px; height: 5px; }
+
+    @keyframes sparkleAnim {
+      0%, 100% { opacity: 0; transform: scale(0.5); }
+      50% { opacity: 1; transform: scale(1.5); }
+    }
+
     /* ===== CAPTION ===== */
     .slide-caption {
       position: absolute;
@@ -295,9 +375,7 @@
       font-style: italic;
       text-shadow: 0 2px 20px rgba(0,0,0,0.3);
     }
-    .slide.active .slide-caption {
-      opacity: 1;
-    }
+    .slide.active .slide-caption { opacity: 1; }
     .slide-caption i { color: #ff6b8a; margin-right: 8px; }
     .slide-caption small {
       display: block;
@@ -309,7 +387,7 @@
       font-family: 'Quicksand', sans-serif;
     }
 
-    /* ===== TOMBOL CINTA ===== */
+    /* ===== TOMBOL ===== */
     .slide-actions {
       position: absolute;
       bottom: 20px;
@@ -326,11 +404,7 @@
       transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s;
       pointer-events: none;
     }
-    .slide.active .slide-actions {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
+    .slide.active .slide-actions { opacity: 1; transform: translateY(0); pointer-events: auto; }
 
     .love-btn-overlay {
       background: rgba(255,255,255,0.06);
@@ -355,20 +429,14 @@
       letter-spacing: 0.5px;
       font-family: 'Playfair Display', serif;
     }
-    .love-btn-overlay i {
-      font-size: 1rem;
-      color: #ff6b8a;
-    }
+    .love-btn-overlay i { font-size: 1rem; color: #ff6b8a; }
     .love-btn-overlay:hover {
       transform: scale(1.08) translateY(-4px);
       background: rgba(255,255,255,0.12);
       border-color: rgba(255,215,220,0.2);
       box-shadow: 0 8px 40px rgba(232,67,110,0.2), 0 0 60px rgba(232,67,110,0.05);
     }
-    .love-btn-overlay:active {
-      transform: scale(0.94);
-    }
-
+    .love-btn-overlay:active { transform: scale(0.94); }
     .love-btn-overlay.special {
       background: linear-gradient(135deg, rgba(232,67,110,0.2), rgba(255,107,138,0.15));
       border-color: rgba(232,67,110,0.2);
@@ -379,7 +447,6 @@
       box-shadow: 0 8px 40px rgba(232,67,110,0.3);
     }
 
-    /* ===== NAVIGASI ===== */
     .nav-btn {
       position: absolute;
       top: 50%;
@@ -403,21 +470,11 @@
       pointer-events: none;
       box-shadow: 0 2px 20px rgba(0,0,0,0.1);
     }
-    .slideshow-container:hover .nav-btn,
-    .slideshow-container:active .nav-btn {
-      opacity: 0.6;
-      pointer-events: auto;
-    }
-    .nav-btn:hover {
-      background: rgba(255,255,255,0.08);
-      transform: translateY(-50%) scale(1.1);
-      opacity: 1;
-      color: rgba(255,255,255,0.8);
-    }
+    .slideshow-container:hover .nav-btn, .slideshow-container:active .nav-btn { opacity: 0.6; pointer-events: auto; }
+    .nav-btn:hover { background: rgba(255,255,255,0.08); transform: translateY(-50%) scale(1.1); opacity: 1; color: rgba(255,255,255,0.8); }
     .nav-btn.prev { left: 6px; }
     .nav-btn.next { right: 6px; }
 
-    /* ===== DOTS ===== */
     .dots-container {
       display: flex;
       justify-content: center;
@@ -434,14 +491,8 @@
       transition: all 0.4s ease;
       padding: 0;
     }
-    .dot.active {
-      background: #e8436e;
-      transform: scale(1.5);
-      box-shadow: 0 0 20px rgba(232,67,110,0.3);
-      border-color: #e8436e;
-    }
+    .dot.active { background: #e8436e; transform: scale(1.5); box-shadow: 0 0 20px rgba(232,67,110,0.3); border-color: #e8436e; }
 
-    /* ===== ORNAMEN BAWAH ===== */
     .ornament-bottom {
       display: flex;
       justify-content: center;
@@ -454,18 +505,9 @@
       font-style: italic;
       letter-spacing: 2px;
     }
-    .ornament-bottom .line {
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, transparent, rgba(255,215,220,0.1), transparent);
-      max-width: 50px;
-    }
-    .ornament-bottom i {
-      color: rgba(232,67,110,0.3);
-      font-size: 0.7rem;
-    }
+    .ornament-bottom .line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(255,215,220,0.1), transparent); max-width: 50px; }
+    .ornament-bottom i { color: rgba(232,67,110,0.3); font-size: 0.7rem; }
 
-    /* ===== MUSIC ===== */
     .music-control {
       margin-top: 1.5rem;
       display: flex;
@@ -478,31 +520,10 @@
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255,215,220,0.05);
     }
-    .music-btn {
-      background: none;
-      border: none;
-      font-size: 1.1rem;
-      cursor: pointer;
-      color: rgba(255,215,220,0.4);
-      transition: 0.3s;
-      padding: 0.2rem 0.6rem;
-      border-radius: 40px;
-    }
-    .music-btn:hover { 
-      background: rgba(255,255,255,0.03); 
-      transform: scale(1.1);
-      color: rgba(255,215,220,0.7);
-    }
-    .music-label {
-      font-size: 0.7rem;
-      color: rgba(255,215,220,0.3);
-      font-weight: 600;
-      letter-spacing: 1px;
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-    }
+    .music-btn { background: none; border: none; font-size: 1.1rem; cursor: pointer; color: rgba(255,215,220,0.4); transition: 0.3s; padding: 0.2rem 0.6rem; border-radius: 40px; }
+    .music-btn:hover { background: rgba(255,255,255,0.03); transform: scale(1.1); color: rgba(255,215,220,0.7); }
+    .music-label { font-size: 0.7rem; color: rgba(255,215,220,0.3); font-weight: 600; letter-spacing: 1px; font-family: 'Playfair Display', serif; font-style: italic; }
 
-    /* ===== ROMANTIC OUTPUT ===== */
     .romantic-output {
       margin-top: 1.2rem;
       min-height: 45px;
@@ -528,12 +549,8 @@
       letter-spacing: 0.5px;
     }
     .love-message i { color: #e8436e; }
-    @keyframes fadePop {
-      0% { opacity: 0; transform: scale(0.8); }
-      100% { opacity: 1; transform: scale(1); }
-    }
+    @keyframes fadePop { 0% { opacity: 0; transform: scale(0.8); } 100% { opacity: 1; transform: scale(1); } }
 
-    /* ===== HUJAN LOVE SAAT KLIK ===== */
     .rain-burst {
       position: fixed;
       pointer-events: none;
@@ -546,7 +563,6 @@
       50% { opacity: 1; transform: translate(var(--tx), var(--ty)) scale(1.2) rotate(180deg); }
       100% { opacity: 0; transform: translate(calc(var(--tx)*1.5), calc(var(--ty)*1.5)) scale(2.5) rotate(360deg); }
     }
-
     .floating-emoji {
       position: fixed;
       pointer-events: none;
@@ -559,7 +575,6 @@
       100% { opacity: 0; transform: translateY(-300px) scale(2) rotate(40deg); }
     }
 
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 480px) {
       .card { padding: 1.5rem 1rem; border-radius: 32px; }
       .title { font-size: 1.8rem; }
@@ -570,28 +585,27 @@
       .slide-caption { font-size: 0.75rem; padding: 0.8rem 1rem 0.5rem; }
       .ornament-top, .ornament-bottom { font-size: 0.7rem; }
       .ornament-top .line, .ornament-bottom .line { max-width: 30px; }
+      .love-overlay .floating-heart { font-size: 1.8rem !important; }
+      .love-ring { width: 80px; height: 80px; }
+      .slide.active .love-ring { transform: translate(-50%, -50%) scale(1.5); }
     }
     @media (max-width: 380px) {
       .love-btn-overlay { font-size: 0.6rem; padding: 8px 12px; gap: 4px; }
       .love-btn-overlay i { font-size: 0.65rem; }
       .slide-actions { bottom: 8px; gap: 6px; }
+      .love-overlay .floating-heart { font-size: 1.4rem !important; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ===== BINTANG ===== -->
   <div class="stars" id="starsContainer"></div>
-
-  <!-- ===== HUJAN LOVE ===== -->
   <div class="rain-container" id="rainContainer"></div>
 
-  <!-- ===== CARD UTAMA ===== -->
   <div class="card">
     <div class="glow-orb orb1"></div>
     <div class="glow-orb orb2"></div>
 
-    <!-- Ornamen Atas -->
     <div class="ornament-top">
       <span class="line"></span>
       <i class="fas fa-heart"></i>
@@ -603,7 +617,6 @@
     <h1 class="title">Mia ❤️ Frengky</h1>
     <div class="subtitle"><i class="fas fa-feather-alt"></i> LDR • Cinta Sejati <i class="fas fa-feather-alt"></i></div>
 
-    <!-- ===== SLIDESHOW ===== -->
     <div class="slideshow-container" id="slideshowContainer">
 
       <div class="paper-frame">
@@ -611,6 +624,30 @@
         <!-- Slide 1 -->
         <div class="slide active" data-index="0">
           <img src="foto1.jpg" alt="Kenangan 1" loading="lazy">
+          
+          <!-- ★ LOVE ANIMASI DI TENGAH FOTO ★ -->
+          <div class="love-overlay">
+            <div class="floating-heart">❤️</div>
+            <div class="floating-heart">💕</div>
+            <div class="floating-heart">💖</div>
+            <div class="floating-heart">💗</div>
+            <div class="floating-heart">💘</div>
+            <div class="floating-heart">💝</div>
+            <div class="floating-heart">💞</div>
+            <div class="floating-heart">❤️</div>
+          </div>
+          <div class="love-ring"></div>
+          <div class="sparkle-container">
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+          </div>
+
           <div class="slide-caption">
             <i class="fas fa-heart"></i> Pertama kali bertemu
             <small>Momen yang tak terlupakan</small>
@@ -624,6 +661,27 @@
         <!-- Slide 2 -->
         <div class="slide" data-index="1">
           <img src="foto2.jpg" alt="Kenangan 2" loading="lazy">
+          <div class="love-overlay">
+            <div class="floating-heart">❤️</div>
+            <div class="floating-heart">💕</div>
+            <div class="floating-heart">💖</div>
+            <div class="floating-heart">💗</div>
+            <div class="floating-heart">💘</div>
+            <div class="floating-heart">💝</div>
+            <div class="floating-heart">💞</div>
+            <div class="floating-heart">❤️</div>
+          </div>
+          <div class="love-ring"></div>
+          <div class="sparkle-container">
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+          </div>
           <div class="slide-caption">
             <i class="fas fa-heart"></i> Tawa dan bahagia
             <small>Setiap detik berharga</small>
@@ -637,6 +695,27 @@
         <!-- Slide 3 -->
         <div class="slide" data-index="2">
           <img src="foto3.jpg" alt="Kenangan 3" loading="lazy">
+          <div class="love-overlay">
+            <div class="floating-heart">❤️</div>
+            <div class="floating-heart">💕</div>
+            <div class="floating-heart">💖</div>
+            <div class="floating-heart">💗</div>
+            <div class="floating-heart">💘</div>
+            <div class="floating-heart">💝</div>
+            <div class="floating-heart">💞</div>
+            <div class="floating-heart">❤️</div>
+          </div>
+          <div class="love-ring"></div>
+          <div class="sparkle-container">
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+          </div>
           <div class="slide-caption">
             <i class="fas fa-heart"></i> Cinta yang tumbuh
             <small>Jarak tak jadi penghalang</small>
@@ -650,6 +729,27 @@
         <!-- Slide 4 -->
         <div class="slide" data-index="3">
           <img src="foto4.jpg" alt="Kenangan 4" loading="lazy">
+          <div class="love-overlay">
+            <div class="floating-heart">❤️</div>
+            <div class="floating-heart">💕</div>
+            <div class="floating-heart">💖</div>
+            <div class="floating-heart">💗</div>
+            <div class="floating-heart">💘</div>
+            <div class="floating-heart">💝</div>
+            <div class="floating-heart">💞</div>
+            <div class="floating-heart">❤️</div>
+          </div>
+          <div class="love-ring"></div>
+          <div class="sparkle-container">
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+          </div>
           <div class="slide-caption">
             <i class="fas fa-heart"></i> Sampai jumpa di pelukan
             <small>LDR takkan memisahkan kita</small>
@@ -660,13 +760,11 @@
           </div>
         </div>
 
-        <!-- Navigation -->
         <button class="nav-btn prev" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
         <button class="nav-btn next" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
       </div>
     </div>
 
-    <!-- Dots -->
     <div class="dots-container" id="dotsContainer">
       <button class="dot active" data-index="0"></button>
       <button class="dot" data-index="1"></button>
@@ -674,7 +772,6 @@
       <button class="dot" data-index="3"></button>
     </div>
 
-    <!-- Ornamen Bawah -->
     <div class="ornament-bottom">
       <span class="line"></span>
       <i class="fas fa-heart"></i>
@@ -683,7 +780,6 @@
       <span class="line"></span>
     </div>
 
-    <!-- ===== MUSIC ===== -->
     <div class="music-control">
       <button class="music-btn" id="playPauseBtn">
         <i class="fas fa-play" id="playIcon"></i>
@@ -694,7 +790,6 @@
       </button>
     </div>
 
-    <!-- ===== ROMANTIC OUTPUT ===== -->
     <div class="romantic-output" id="romanticOutput">
       <div class="love-message">
         <i class="fas fa-heart" style="color:#e8436e;"></i>  Klik tombol cinta di dalam foto  <i class="fas fa-heart" style="color:#e8436e;"></i>
@@ -703,7 +798,6 @@
 
   </div>
 
-  <!-- ===== AUDIO ===== -->
   <audio id="romanticSong" loop preload="auto">
     <source src="https://raw.githubusercontent.com/frengkysihombing/Romantis/dcc093336370164fe887fee660895562a85185fb/Souqy.mp3" type="audio/mpeg">
   </audio>
@@ -751,7 +845,19 @@
       function goToSlide(index) {
         if (index < 0) index = slides.length - 1;
         if (index >= slides.length) index = 0;
-        slides.forEach((s, i) => s.classList.toggle('active', i === index));
+        slides.forEach((s, i) => {
+          s.classList.toggle('active', i === index);
+          // Reset animasi dengan reflow
+          if (i === index) {
+            const overlay = s.querySelector('.love-overlay');
+            if (overlay) {
+              overlay.style.opacity = '0';
+              requestAnimationFrame(() => {
+                overlay.style.opacity = '1';
+              });
+            }
+          }
+        });
         dots.forEach((d, i) => d.classList.toggle('active', i === index));
         currentIndex = index;
       }
